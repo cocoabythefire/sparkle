@@ -6,11 +6,14 @@ describe('sparkleApp.profile module', function() {
 
   describe('profile controller', function(){
 
-    it('should ....', inject(function($controller) {
-      var $scope = {};
-      var profileViewCtrl = $controller('ProfileViewCtrl', { $scope: $scope });
-      expect(profileViewCtrl).toBeDefined();
-    }));
+    it('should create a profile controller with valid name and age', inject(function($controller) {
+      var scope = {},
+          profileViewCtrl = $controller('ProfileViewCtrl', { $scope: scope });
 
+      expect(profileViewCtrl).toBeDefined();
+      expect(scope.firstName).toBeDefined();
+      expect(scope.lastName).toBeDefined();
+      expect(scope.age).toBeDefined();
+    }));
   });
 });
