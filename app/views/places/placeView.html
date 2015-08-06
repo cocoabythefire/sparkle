@@ -1,2 +1,15 @@
-<p>PLACE IT</p>
-<span> {{ thename }}</span>
+<body>
+
+<p>My Places</p>
+
+Search: <input ng-model="query">
+<div id="place-list" ng-cloak ng-controller="PlaceListCtrl">
+  <ul>
+    <li ng-repeat="place in places | filter:query">
+      <span> {{ place.name }} </span>
+      <p> {{ place.type }} </p>
+    </li>
+  </ul>
+</div>
+
+</body>
