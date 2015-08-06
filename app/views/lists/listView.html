@@ -1,0 +1,10 @@
+<h1>My Lists</h1>
+
+Search: <input ng-model="query">
+<div id="all-lists" ng-cloak ng-controller="ListCtrl">
+  <ul>
+    <li ng-repeat="list in lists | filter:query">
+      <span> {{ list.name }} </span>
+    </li>
+  </ul>
+</div>

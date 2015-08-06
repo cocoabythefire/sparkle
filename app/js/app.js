@@ -6,6 +6,7 @@ angular.module('sparkleApp', [
   'sparkleApp.version',
   'sparkleApp.profile',
   'sparkleApp.places',
+  'sparkleApp.lists',
   'placeServices'
 ])
 .config(['$routeProvider', function($routeProvider) {
@@ -13,6 +14,10 @@ angular.module('sparkleApp', [
     when('/places', {
       templateUrl: 'views/places/placeView.html',
       controller: 'PlaceListCtrl'
+    })
+    .when('/lists', {
+      templateUrl: 'views/lists/listView.html',
+      controller: 'ListCtrl'
     })
     .when('/profile', {
       templateUrl: 'views/profile/profileView.html',
