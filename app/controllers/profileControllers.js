@@ -1,5 +1,7 @@
-// var sparkleControllers = angular.module('sparkleControllers', ['ngController']);
+'use strict';
 
-// sparkleControllers.controller('ProfileViewCtrl', ['$scope', 'User', function($scope, User) {
-//   // $scope.users = User.query();
-// }]);
+angular.module('sparkleApp.profile', [])
+
+.controller('ProfileViewCtrl', [function() {
+
+}]);
