@@ -1,16 +1,11 @@
 'use strict';
 
 angular.module('sparkleApp.places', [])
-.controller('PlaceListCtrl', ['$scope', function($scope) {
+.controller('PlaceListCtrl', ['$scope', '$http', function($scope, $http) {
   // $scope.places = Place.query();
   // $scope.orderProp = 'name';
-  $scope.places = [
-    {'name': 'Coava Coffee',
-     'type': 'Coffee Shops'},
-    {'name': 'Podnahs Pit',
-     'type': 'Restaurants'},
-    {'name': 'Por Que No',
-     'type': 'Tacos'}
-  ];
+  $http.get('data/places.json').success(function(data) {
+    $scope.places = data;
+  });
 }]);
 
