@@ -5,7 +5,8 @@ angular.module('sparkleApp', [
   'ngRoute',
   'sparkleApp.version',
   'sparkleApp.profile',
-  'sparkleApp.places'
+  'sparkleApp.places',
+  'placeServices'
 ])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.

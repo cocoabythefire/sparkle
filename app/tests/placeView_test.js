@@ -26,7 +26,24 @@ describe('sparkleApp.places module', function() {
        }
      ];
 
+   beforeEach(function(){
+      jasmine.addMatchers({
+        toEqualData: function(util, customEqualityTesters) {
+          return {
+            compare: function(actual, expected) {
+              var passed = angular.equals(actual, expected);
+              return {
+                pass: passed,
+                message: 'Expected ' + actual + (passed ? '' : ' not') + ' to equal ' + expected
+              };
+            }
+          };
+        }
+       });
+    });
+
     beforeEach(module('sparkleApp.places'));
+    beforeEach(module('placeServices'));
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
@@ -41,9 +58,10 @@ describe('sparkleApp.places module', function() {
     });
 
     it('should create a places model with 3 places', function() {
-      expect(scope.places).toBeUndefined();
+      expect(scope.places).toEqualData([]);
       $httpBackend.flush();
-      expect(scope.places).toEqual(result);
+      console.log(scope.places);
+      expect(scope.places).toEqualData(result);
       expect(scope.places.length).toBe(3);
     });
   });
