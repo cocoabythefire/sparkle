@@ -3,7 +3,7 @@
 describe('sparkleApp.places module', function() {
 
   beforeEach(module('sparkleApp.places'));
-  beforeEach(module('sparkleControllers'));
+  // beforeEach(module('sparkleControllers'));
 
   describe('place view controller', function(){
 
