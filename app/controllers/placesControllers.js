@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('sparkleApp.places', [])
-.controller('PlaceListCtrl', [function() {
+.controller('PlaceListCtrl', ['$scope', function($scope) {
   // $scope.places = Place.query();
   // $scope.orderProp = 'name';
-  // $scope.thename = 'Cup and Bar';
+  $scope.thename = 'Cup and Bar';
 }]);
 

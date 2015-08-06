@@ -2,6 +2,6 @@
 
 angular.module('sparkleApp.profile', [])
 
-.controller('ProfileViewCtrl', [function() {
+.controller('ProfileViewCtrl', ['$scope', function($scope) {
 
 }]);

@@ -7,7 +7,8 @@ describe('sparkleApp.places module', function() {
   describe('place view controller', function(){
 
     it('should ....', inject(function($controller) {
-      var placeListCtrl = $controller('PlaceListCtrl');
+      var $scope = {};
+      var placeListCtrl = $controller('PlaceListCtrl', { $scope: $scope });
       expect(placeListCtrl).toBeDefined();
     }));
 

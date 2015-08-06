@@ -7,7 +7,8 @@ describe('sparkleApp.profile module', function() {
   describe('profile controller', function(){
 
     it('should ....', inject(function($controller) {
-      var profileViewCtrl = $controller('ProfileViewCtrl');
+      var $scope = {};
+      var profileViewCtrl = $controller('ProfileViewCtrl', { $scope: $scope });
       expect(profileViewCtrl).toBeDefined();
     }));
 
