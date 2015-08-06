@@ -30,24 +30,25 @@
     $script([
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
-      'app.js',
-      'view1/view1.js',
-      'view2/view2.js',
+      'js/app.js',
+      'js/controllers.js',
+      'views/profile/profileView.js',
+      'views/places/placeView.js',
       'components/version/version.js',
       'components/version/version-directive.js',
       'components/version/interpolate-filter.js'
     ], function() {
       // when all is done, execute bootstrap angular application
-      angular.bootstrap(document, ['myApp']);
+      angular.bootstrap(document, ['sparkleApp']);
     });
   </script>
-  <title>My AngularJS App</title>
-  <link rel="stylesheet" href="app.css">
+  <title>Sparkle App</title>
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body ng-cloak>
   <ul class="menu">
-    <li><a href="#/view1">view1</a></li>
-    <li><a href="#/view2">view2</a></li>
+    <li><a href="#/places">places</a></li>
+    <li><a href="#/profile">profile</a></li>
   </ul>
 
   <div ng-view></div>

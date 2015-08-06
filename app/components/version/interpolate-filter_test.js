@@ -1,7 +1,7 @@
 'use strict';
 
-describe('myApp.version module', function() {
-  beforeEach(module('myApp.version'));
+describe('sparkleApp.version module', function() {
+  beforeEach(module('sparkleApp.version'));
 
   describe('interpolate filter', function() {
     beforeEach(module(function($provide) {
