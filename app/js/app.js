@@ -7,7 +7,8 @@ angular.module('sparkleApp', [
   'sparkleApp.profile',
   'sparkleApp.places',
   'sparkleApp.lists',
-  'placeServices'
+  'placeServices',
+  'listServices'
 ])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.
