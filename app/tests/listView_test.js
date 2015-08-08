@@ -57,7 +57,6 @@ describe('sparkleApp.lists module', function() {
     it('should create a list model with 3 lists', function() {
       expect(scope.lists).toEqualData([]);
       $httpBackend.flush();
-      console.log(scope.lists);
       expect(scope.lists).toEqualData(result);
       expect(scope.lists.length).toBe(3);
     });
