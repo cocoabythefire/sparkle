@@ -8,3 +8,10 @@ Search: <input ng-model="query">
     </li>
   </ul>
 </div>
+<div ng-controller="ListCtrl">
+  <form>
+    Name:
+    <input type="text" ng-model="list.name" name="listName" ng-model-options="{ debounce: 250 }" /><br />
+  </form>
+  <input type="submit" ng-click="createList(list.name)" value="Save" />
+</div>

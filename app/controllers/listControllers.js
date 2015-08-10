@@ -5,4 +5,9 @@ angular.module('sparkleApp.lists', [])
   List.query().$promise.then(function(result) {
     $scope.lists = result.lists;
   });
+
+  $scope.createList = function(listName) {
+    List.save({ name:listName }).$promise.then(function(result) {
+    });
+  };
 }]);

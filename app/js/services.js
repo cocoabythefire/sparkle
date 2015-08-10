@@ -11,6 +11,10 @@ placeServices.factory('Place', ['$resource', function($resource){
 var listServices = angular.module('listServices', ['ngResource']);
 listServices.factory('List', ['$resource', function($resource){
   return $resource('/api/lists/', {}, {
-    query: {method:'GET', headers:{'x-glitter-token': 'abc1234'}}
+    query: {method:'GET', headers:{'x-glitter-token': 'abc1234'}},
+    save: {
+      method:'POST',
+      headers:{'x-glitter-token': 'abc1234'}
+    }
   });
 }]);
