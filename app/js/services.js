@@ -1,3 +1,5 @@
+'use strict';
+
 var placeServices = angular.module('placeServices', ['ngResource']);
 placeServices.factory('Place', ['$resource', function($resource){
   return $resource('/api/places/', {}, {
@@ -8,7 +10,7 @@ placeServices.factory('Place', ['$resource', function($resource){
 
 var listServices = angular.module('listServices', ['ngResource']);
 listServices.factory('List', ['$resource', function($resource){
-  return $resource('data/lists.json', {}, {
-    query: {method:'GET', isArray:true}
+  return $resource('/api/lists/', {}, {
+    query: {method:'GET', headers:{'x-glitter-token': 'abc1234'}}
   });
 }]);

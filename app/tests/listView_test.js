@@ -5,8 +5,8 @@ describe('sparkleApp.lists module', function() {
   describe('list controller', function(){
     var scope, listCtrl, $httpBackend;
 
-    var result = [
-       {
+    var result = {
+      lists: [{
         "id": 1,
         "name": "Coffee Shops",
         "snippet": "Where to get your caffeine"
@@ -20,8 +20,8 @@ describe('sparkleApp.lists module', function() {
         "id": 3,
         "name": "Sweet Treats",
         "snippet": "Indulgence time!"
-       }
-     ];
+       }]
+     };
 
    beforeEach(function(){
       jasmine.addMatchers({
@@ -44,7 +44,7 @@ describe('sparkleApp.lists module', function() {
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('data/lists.json').
+      $httpBackend.expectGET('/api/lists').
           respond(result);
       scope = $rootScope.$new();
       listCtrl = $controller('ListCtrl', {$scope: scope});
@@ -55,9 +55,9 @@ describe('sparkleApp.lists module', function() {
     });
 
     it('should create a list model with 3 lists', function() {
-      expect(scope.lists).toEqualData([]);
+      expect(scope.lists).not.toBeDefined();
       $httpBackend.flush();
-      expect(scope.lists).toEqualData(result);
+      expect(scope.lists).toEqualData(result.lists);
       expect(scope.lists.length).toBe(3);
     });
   });
