@@ -1,17 +1,17 @@
 <h1>My Lists</h1>
 
 Search: <input ng-model="query">
-<div id="all-lists" ng-cloak ng-controller="ListCtrl">
+<div id="all-lists" ng-model="lists" ng-controller="ListCtrl">
   <ul>
     <li ng-repeat="list in lists | filter:query">
       <span> {{ list.name }} </span>
     </li>
   </ul>
 </div>
-<div ng-controller="ListCtrl">
-  <form>
+<form ng-submit="createList(listName)" ng-controller="ListCtrl">
     Name:
-    <input type="text" ng-model="list.name" name="listName" ng-model-options="{ debounce: 250 }" /><br />
-  </form>
-  <input type="submit" ng-click="createList(list.name)" value="Save" />
-</div>
+    <input type="text" ng-model="listName" name="listName" ng-model-options="{ debounce: 250 }" /><br />
+    <input type="submit" id="submit" value="Save" />
+     <pre>lists={{lists}}</pre>
+</form>
+
