@@ -13,5 +13,11 @@ angular.module('sparkleApp.lists', [])
     });
   };
 
+  $scope.deleteList = function(listId) {
+    List.delete({ id: listId }).$promise.then(function(result) {
+      $scope.updateLists();
+    });
+  };
+
   $scope.updateLists();
 }]);

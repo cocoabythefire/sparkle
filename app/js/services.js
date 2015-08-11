@@ -15,6 +15,11 @@ listServices.factory('List', ['$resource', function($resource){
     save: {
       method:'POST',
       headers:{'x-glitter-token': 'abc1234'}
+    },
+    delete: {
+      method:'DELETE',
+      url: '/api/lists/:id',
+      headers:{'x-glitter-token': 'abc1234'}
     }
   });
 }]);
