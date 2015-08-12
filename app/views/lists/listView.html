@@ -1,5 +1,5 @@
-<h1>My Lists</h1>
 <div ng-controller="ListCtrl">
+  <h1>My Lists</h1>
   <form ng-submit="createList(list.name)" novalidate>
       Create List:
       <input type="text" ng-model="list.name" name="listName" ng-model-options="{ debounce: 250 }" /><br />
@@ -12,7 +12,7 @@
   <div id="all-lists" ng-model="lists">
     <ul>
       <li ng-repeat="list in lists | filter:query | orderBy:'name'">
-        <span> {{ list.name }} <button ng-click="deleteList(list.id)">Delete</button></span
+        <span> <a href='#/lists/{{ list.id }}'> {{ list.name }} </a><button ng-click="deleteList(list.id)">Delete</button></span
       </li>
     </ul>
   </div>

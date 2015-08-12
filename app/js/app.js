@@ -19,6 +19,10 @@ angular.module('sparkleApp', [
       templateUrl: 'views/lists/listView.html',
       controller: 'ListCtrl'
     })
+    .when('/lists/:id', {
+      templateUrl: 'views/lists/listDetailView.html',
+      controller: 'ListCtrl'
+    })
     .when('/profile', {
       templateUrl: 'views/profile/profileView.html',
       controller: 'ProfileViewCtrl'
