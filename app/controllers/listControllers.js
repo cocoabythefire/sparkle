@@ -22,8 +22,8 @@ app.controller('ListCtrl', ['$scope', '$routeParams', 'List', function($scope, $
   };
 
   List.get({ id: $routeParams.id}).$promise.then(function(result) {
-    $scope.currentList = result.list;
-    $scope.places = result.places;
+    $scope.list = result.list;
+    $scope.listPlaces = result.places;
   });
 
   $scope.updateLists();
