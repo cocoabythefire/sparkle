@@ -3,7 +3,7 @@
 Search: <input ng-model="query">
 <div id="place-list" ng-cloak ng-controller="PlaceListCtrl">
   <ul>
-    <li ng-repeat="place in places | filter:query">
+    <li ng-repeat="place in places | filter:query | orderBy:'name'">
       <span> {{ place.name }} </span>
       <p> {{ place.type }} </p>
     </li>
