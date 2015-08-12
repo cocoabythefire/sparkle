@@ -1,10 +1,12 @@
 <h1>My Places</h1>
 
 Search: <input ng-model="query">
-<div id="place-list" ng-cloak ng-controller="PlaceListCtrl">
+<div id="place-list" ng-cloak ng-model="place" ng-controller="PlaceListCtrl">
   <ul>
     <li ng-repeat="place in places | filter:query | orderBy:'name'">
-      <span> {{ place.name }} </span>
+      <span> {{ place.name }}
+        <button ng-click="deletePlace(place.id)">Delete</button>
+      </span>
       <p> {{ place.type }} </p>
     </li>
   </ul>
