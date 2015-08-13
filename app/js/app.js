@@ -2,6 +2,7 @@
 
 angular.module('sparkleApp', [
   'ngRoute',
+  'ngCookies',
   'sparkleApp.version',
   'sparkleApp.profile',
   'sparkleApp.places',
