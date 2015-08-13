@@ -1,27 +1,21 @@
 'use strict';
 
 var placeServices = angular.module('placeServices', ['ngResource']);
-placeServices.factory('Place', ['$resource', function($resource){
-  return $resource('/api/lists/:id/places/', {}, {
-    query: {
-      url:'/api/places',
-      method:'GET'
-    },
+placeServices.factory('Place', ['$resource', function($resource) {
+  return $resource('/api/lists/:listId/places', { listId: '@listId', placeId: '@placeId' }, {
+    get: {method:'GET', headers:{'x-glitter-token': 'abc1234'}},
+    query: {url: '/api/places/', method:'GET', headers:{'x-glitter-token': 'abc1234'}},
     save: {
-      //TODO fix this hard coded sitch
-      url:'/api/lists/90/places/',
       method:'POST',
-      headers:{'x-glitter-token': 'abc1234'},
+      headers:{'x-glitter-token': 'abc1234'}
     },
-    delete: {
-      //TODO fix this hard coded sitch
-      url:'/api/lists/90/places/:placeId',
+    remove: {
+      url: '/api/lists/:listId/places/:placeId',
       method:'DELETE',
       headers:{'x-glitter-token': 'abc1234'}
     }
   });
 }]);
-
 
 var listServices = angular.module('listServices', ['ngResource']);
 listServices.factory('List', ['$resource', function($resource){

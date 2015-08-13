@@ -1,4 +1,4 @@
-<div ng-controller="ListCtrl" ng-model="list.places">
+<div ng-controller="ListCtrl">
   <h1> The {{list.name}} List!</h1>
 
   <div ng-controller="PlaceListCtrl">
@@ -13,7 +13,7 @@
       <li ng-repeat="place in listPlaces | filter:query | orderBy:'name'">
         <span>
           <a href='#/lists/{{ list.id }}/places/{{ place.id }}'> {{ place.name }} </a>
-          <button ng-click="deletePlace(place.id)">Delete</button>
+          <button ng-click="removePlace(place.id)">Delete</button>
         </span
       </li>
     </ul>
