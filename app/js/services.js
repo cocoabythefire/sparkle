@@ -30,3 +30,10 @@ listServices.factory('List', ['$resource', function($resource){
     delete: { method:'DELETE', headers: tokenHeaders }
   });
 }]);
+
+var userServices = angular.module('userServices', ['ngResource']);
+listServices.factory('User', ['$resource', function($resource){
+  return $resource('/api/users/login', {}, {
+    login: { method:'POST' }
+  });
+}]);

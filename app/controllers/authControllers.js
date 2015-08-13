@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('sparkleApp.auth', [])
-.controller('LoginCtrl', ['$scope', function($scope) {
+.controller('LoginCtrl', ['$scope', 'User', function($scope, User) {
   $scope.login = function() {
-    console.log('username: ' + $scope.formUsername);
-    console.log('password: ' + $scope.formPassword);
+    User.login({ username: $scope.formUsername, password: $scope.formPassword}).$promise.then(function(result) {
+      // do something with tokens
+    });
   };
 }]);
