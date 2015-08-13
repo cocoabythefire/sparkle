@@ -14,7 +14,13 @@ angular.module('sparkleApp.places', [])
   };
 
   $scope.removePlace = function(placeId) {
-    Place.remove({ placeId: placeId, listId: $routeParams.id }).$promise.then(function(result) {
+    Place.remove({ listId: $routeParams.id, placeId: placeId }).$promise.then(function(result) {
+      $scope.updateListPlaces();
+    });
+  };
+
+  $scope.addPlace = function(placeId) {
+    Place.save({ listId: $routeParams.id, placeId: placeId }).$promise.then(function(result) {
       $scope.updateListPlaces();
     });
   };

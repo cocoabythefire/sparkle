@@ -1,22 +1,28 @@
-<div ng-controller="PlaceListCtrl">
-  <h1> The {{list.name}} List!</h1>
+<div ng-controller="ListCtrl">
+  <h1>The {{list.name}}</span> List!</h1>
+  <div ng-controller="PlaceListCtrl">
+    <form ng-submit="createPlace(place.name)" novalidate>
+        Create Place:
+        <input type="text" ng-model="place.name" ng-model-options="{ debounce: 250 }" /><br />
+        <input type="submit" id="savePlace" value="Create and Add" />
+    </form>
+    </br>
 
-  <form ng-submit="createPlace(place.name)" novalidate>
-      Create Place:
-      <input type="text" ng-model="place.name" ng-model-options="{ debounce: 250 }" /><br />
-      <input type="submit" id="savePlace" value="Save and Add" />
-  </form>
-  </br>
+    <select ng-model="selectedPlace" ng-options="place.name for place in places"></select>
+    <button ng-click="addPlace(selectedPlace.id)"> Add </button>
 
-  <h2> The Places Are...</h2>
-  <div id="list-places" ng-model="listPlaces">
-    <ul>
-      <li ng-repeat="place in listPlaces | filter:query | orderBy:'name'">
-        <span>
-          <a href='#/lists/{{ list.id }}/places/{{ place.id }}'> {{ place.name }} </a>
-          <button ng-click="removePlace(place.id)"> Delete </button>
-        </span
-      </li>
-    </ul>
+    <h2> The Places Are...</h2>
+    <div id="list-places" ng-model="listPlaces">
+      <ul>
+        <li ng-repeat="place in listPlaces | filter:query | orderBy:'name'">
+          <span>
+            <a href='#/lists/{{ list.id }}/places/{{ place.id }}'> {{ place.name }} </a>
+            <button ng-click="removePlace(place.id)"> Delete </button>
+          </span
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
+
+
