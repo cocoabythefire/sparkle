@@ -1,19 +1,20 @@
-<div ng-controller="ListCtrl">
+<div ng-controller="PlaceListCtrl">
   <h1> The {{list.name}} List!</h1>
 
-  <div ng-controller="PlaceListCtrl">
   <form ng-submit="createPlace(place.name)" novalidate>
       Create Place:
-      <input type="text" ng-model="place.name" name="placeName" ng-model-options="{ debounce: 250 }" /><br />
+      <input type="text" ng-model="place.name" ng-model-options="{ debounce: 250 }" /><br />
       <input type="submit" id="savePlace" value="Save and Add" />
   </form>
   </br>
+
   <h2> The Places Are...</h2>
+  <div id="list-places" ng-model="listPlaces">
     <ul>
       <li ng-repeat="place in listPlaces | filter:query | orderBy:'name'">
         <span>
           <a href='#/lists/{{ list.id }}/places/{{ place.id }}'> {{ place.name }} </a>
-          <button ng-click="removePlace(place.id)">Delete</button>
+          <button ng-click="removePlace(place.id)"> Delete </button>
         </span
       </li>
     </ul>

@@ -12,6 +12,7 @@ app.controller('ListCtrl', ['$scope', '$routeParams', 'List', function($scope, $
   $scope.createList = function(listName) {
     List.save({ name: listName }).$promise.then(function(result) {
       $scope.updateLists();
+      $scope.list = {};
     });
   };
 
