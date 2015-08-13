@@ -8,8 +8,8 @@
   </form>
   </br>
 
-  <select ng-model="selectPlace" ng-options="place as place.name for place in places"></select>
-  <button ng-click="createPlace(place.id)"> Add </button>
+  <select ng-model="selectedPlace" ng-options="place as place.name for place in places"></select>
+  <button ng-click="addPlace(selectedPlace.id)"> Add </button>
 
   <h2> The Places Are...</h2>
   <div id="list-places" ng-model="listPlaces">

@@ -22,6 +22,7 @@ angular.module('sparkleApp.places', [])
   $scope.addPlace = function(placeId) {
     Place.save({ listId: $routeParams.id, placeId: placeId }).$promise.then(function(result) {
       $scope.updateListPlaces();
+      $scope.selectedPlace = {};
     });
   };
 
