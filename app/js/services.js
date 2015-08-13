@@ -32,8 +32,16 @@ listServices.factory('List', ['$resource', function($resource){
 }]);
 
 var userServices = angular.module('userServices', ['ngResource']);
-listServices.factory('User', ['$resource', function($resource){
+userServices.factory('User', ['$resource', function($resource){
   return $resource('/api/users/login', {}, {
-    login: { method:'POST' }
+    login: {
+      method:'POST',
+      transformResponse: function(data, headers){
+        var response = {};
+        response.data = data;
+        response.headers = headers();
+        return response;
+      }
+    }
   });
 }]);
