@@ -16,8 +16,8 @@
     <ul>
       <li ng-repeat="place in listPlaces | filter:query | orderBy:'name'">
         <span>
-          <a href='#/lists/{{ list.id }}/places/{{ place.id }}'> {{ place.name }} </a>
-          <button ng-click="removePlace(place.id)"> Delete </button>
+          {{ place.name }}
+          <button ng-click="removePlace(place.id)"> Remove </button>
         </span
       </li>
     </ul>

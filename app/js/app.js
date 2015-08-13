@@ -6,6 +6,7 @@ angular.module('sparkleApp', [
   'sparkleApp.profile',
   'sparkleApp.places',
   'sparkleApp.lists',
+  'sparkleApp.auth',
   'placeServices',
   'listServices'
 ])
@@ -26,6 +27,10 @@ angular.module('sparkleApp', [
     .when('/profile', {
       templateUrl: 'views/profile/profileView.html',
       controller: 'ProfileViewCtrl'
+    })
+    .when('/login', {
+      templateUrl: 'views/loginView.html',
+      controller: 'LoginCtrl'
     })
     .otherwise({
       redirectTo: '/places'
