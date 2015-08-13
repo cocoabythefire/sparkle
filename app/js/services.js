@@ -32,14 +32,15 @@ listServices.factory('List', ['$resource', function($resource){
 }]);
 
 var userServices = angular.module('userServices', ['ngResource']);
-userServices.factory('User', ['$resource', function($resource){
+userServices.factory('Auth', ['$resource', function($resource){
   return $resource('/api/users/login', {}, {
     login: {
       method:'POST',
-      transformResponse: function(data, headers){
+      transformResponse: function(data, headers, status){
         var response = {};
         response.data = data;
         response.headers = headers();
+        response.status = status;
         return response;
       }
     }
