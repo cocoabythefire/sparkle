@@ -13,6 +13,11 @@ placeServices.factory('Place', ['$resource', function($resource) {
       url: '/api/lists/:listId/places/:placeId',
       method:'DELETE',
       headers:{'x-glitter-token': 'abc1234'}
+    },
+    delete: {
+      url: '/api/places/:placeId',
+      method:'DELETE',
+      headers:{'x-glitter-token': 'abc1234'}
     }
   });
 }]);
