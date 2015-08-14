@@ -31,9 +31,8 @@ listServices.factory('List', ['$resource', function($resource){
   });
 }]);
 
-var userServices = angular.module('userServices', ['ngResource']);
-
-userServices.factory('Auth', ['$resource', '$cookies', function($resource, $cookies) {
+var authServices = angular.module('authServices', ['ngResource']);
+authServices.factory('Auth', ['$resource', '$cookies', function($resource, $cookies) {
   var baseURL = '/api/users';
   return $resource(baseURL, {}, {
       login: {
@@ -52,8 +51,7 @@ userServices.factory('Auth', ['$resource', '$cookies', function($resource, $cook
       }
     });
 }]);
-
-userServices.factory('sendTokenHeaders', ['$cookies', function($cookies) {
+authServices.factory('sendTokenHeaders', ['$cookies', function($cookies) {
   return {
     request: function(config) {
       var token = $cookies.getObject('x-glitter-token');
@@ -65,4 +63,13 @@ userServices.factory('sendTokenHeaders', ['$cookies', function($cookies) {
       return config;
     }
   };
+}]);
+
+var userServices = angular.module('userServices', ['ngResource']);
+userServices.factory('User', ['$resource', function($resource) {
+  return $resource('/api/profile', {}, {
+      getProfile: {
+        method: 'GET'
+      }
+    });
 }]);

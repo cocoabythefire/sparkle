@@ -10,4 +10,12 @@ describe('service', function() {
   it('check the existence of List factory', inject(function(List) {
     expect(List).toBeDefined();
   }));
+
+  it('check the existence of Auth factory', inject(function(Auth) {
+    expect(Auth).toBeDefined();
+  }));
+
+  it('check the existence of User factory', inject(function(User) {
+    expect(User).toBeDefined();
+  }));
 });
