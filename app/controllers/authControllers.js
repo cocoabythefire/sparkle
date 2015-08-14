@@ -3,7 +3,7 @@
 var tokenHeaderKey = 'x-glitter-token';
 
 angular.module('sparkleApp.auth', [])
-.controller('LoginCtrl', ['$scope', '$cookies', '$location', 'Auth', 'TokenHandler', function($scope, $cookies, $location, Auth, TokenHandler) {
+.controller('LoginCtrl', ['$scope', '$cookies', '$location', 'Auth', function($scope, $cookies, $location, Auth) {
 
   var getCurrentSessionToken = function() {
     return $cookies.getObject(tokenHeaderKey);
@@ -16,11 +16,10 @@ angular.module('sparkleApp.auth', [])
   $scope.login = function() {
     var currentSessionToken = getCurrentSessionToken();
     if (!currentSessionToken) {
-      Auth.login({ username: $scope.formUsername, password: $scope.formPassword }).$promise
+      Auth(currentSessionToken).login({ username: $scope.formUsername, password: $scope.formPassword }).$promise
       .then(function(result) {
         $cookies.putObject(tokenHeaderKey, result.headers[tokenHeaderKey]);
         console.log('Login successful');
-        console.log($cookies.getObject('x-glitter-token'));
         $location.path('/');
       }, function(error) {
         if (error.status == 403) {
@@ -39,18 +38,13 @@ angular.module('sparkleApp.auth', [])
 
   $scope.logout = function() {
     var currentSessionToken = getCurrentSessionToken();
-    console.log('token is currently');
-    console.log(currentSessionToken);
     if (!currentSessionToken) {
       console.log('Cannot logout. The user is not logged in.')
     }
     else {
-      Auth.logout().$promise.then(function(result) {
+      Auth(currentSessionToken).logout().$promise.then(function(result) {
       console.log('Logout successful');
       clearSessionToken();
-      console.log($cookies.getObject('x-glitter-token'));
-      }, function(error) {
-        console.log(error);
       });
     }
   };
