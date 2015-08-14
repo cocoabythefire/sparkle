@@ -35,9 +35,7 @@ var userServices = angular.module('userServices', ['ngResource']);
 
 userServices.factory('Auth', ['$resource', '$cookies', function($resource, $cookies) {
   var baseURL = '/api/users';
-  //TODO should i replace this solution with http injectors?
-  return function(token) {
-    return $resource(baseURL, {}, {
+  return $resource(baseURL, {}, {
       login: {
         url: baseURL + '/login',
         method:'POST',
@@ -51,8 +49,20 @@ userServices.factory('Auth', ['$resource', '$cookies', function($resource, $cook
       logout: {
         url: baseURL + '/logout',
         method:'DELETE',
-        headers: {'x-glitter-token': token}
       }
     });
-  }
+}]);
+
+userServices.factory('sendTokenHeaders', ['$cookies', function($cookies) {
+  return {
+    request: function(config) {
+      var token = $cookies.getObject('x-glitter-token');
+      if(token) {
+        var updateHeaders = config.headers || {};
+        updateHeaders['x-glitter-token'] = token;
+        config.headers = updateHeaders;
+      }
+      return config;
+    }
+  };
 }]);

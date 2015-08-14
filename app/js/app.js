@@ -12,7 +12,7 @@ angular.module('sparkleApp', [
   'listServices',
   'userServices'
 ])
-.config(['$routeProvider', function($routeProvider) {
+.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   $routeProvider.
     when('/places', {
       templateUrl: 'views/places/placeView.html',
@@ -37,4 +37,6 @@ angular.module('sparkleApp', [
     .otherwise({
       redirectTo: '/places'
     });
+
+    $httpProvider.interceptors.push('sendTokenHeaders');
 }]);

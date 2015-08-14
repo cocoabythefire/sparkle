@@ -16,7 +16,7 @@ angular.module('sparkleApp.auth', [])
   $scope.login = function() {
     var currentSessionToken = getCurrentSessionToken();
     if (!currentSessionToken) {
-      Auth(currentSessionToken).login({ username: $scope.formUsername, password: $scope.formPassword }).$promise
+      Auth.login({ username: $scope.formUsername, password: $scope.formPassword }).$promise
       .then(function(result) {
         $cookies.putObject(tokenHeaderKey, result.headers[tokenHeaderKey]);
         console.log('Login successful');
@@ -42,7 +42,7 @@ angular.module('sparkleApp.auth', [])
       console.log('Cannot logout. The user is not logged in.')
     }
     else {
-      Auth(currentSessionToken).logout().$promise.then(function(result) {
+      Auth.logout().$promise.then(function(result) {
       console.log('Logout successful');
       clearSessionToken();
       });
