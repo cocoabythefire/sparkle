@@ -32,9 +32,44 @@ listServices.factory('List', ['$resource', function($resource){
 }]);
 
 var userServices = angular.module('userServices', ['ngResource']);
-userServices.factory('Auth', ['$resource', '$cookies', function($resource, $cookies){
+
+userServices.factory('TokenHandler', ['$cookies', function($cookies) {
+  var tokenHandler = {};
+  var token = "none";
+
+  tokenHandler.set = function(newToken) { token = newToken; };
+  tokenHandler.get = function() { return $cookies.getObject('x-glitter-token') };
+
+  // wrap all resource actions to send auth token
+  tokenHandler.wrapActions = function( resource, actions ) {
+    var wrappedResource = resource;
+    for (var i=0; i < actions.length; i++) {
+      tokenWrapper( wrappedResource, actions[i] );
+    };
+    return wrappedResource;
+  };
+
+  // wrap the specified resource action to send auth token
+  var tokenWrapper = function( resource, action ) {
+    resource['_' + action]  = resource[action];
+    console.log(resource[action]);
+    resource[action] = function( params, data, success, error){
+      return resource['_' + action](
+        angular.extend({}, params || {}, {'x-glitter-token': tokenHandler.get()}),
+        data,
+        success,
+        error
+      );
+    };
+  };
+  return tokenHandler;
+}]);
+
+
+
+userServices.factory('Auth', ['$resource', '$cookies', 'TokenHandler', function($resource, $cookies, TokenHandler){
   var baseURL = '/api/users';
-  return $resource(baseURL, {}, {
+  var resource = $resource(baseURL, {}, {
     login: {
       url: baseURL + '/login',
       method:'POST',
@@ -47,8 +82,17 @@ userServices.factory('Auth', ['$resource', '$cookies', function($resource, $cook
     },
     logout: {
       url: baseURL + '/logout',
-      method:'DELETE',
-      headers: {'x-glitter-token': $cookies.getObject('x-glitter-token')}
+      method:'DELETE'
+      // ,transformRequest: function(data, headers){
+      //   var request = {};
+      //   request.data = data;
+      //   request.headers = {'x-glitter-token': TokenHandler.get()};
+      //   return request;
+      // }
     }
   });
+
+  resource = TokenHandler.wrapActions( resource, [ "logout" ] );
+
+  return resource;
 }]);

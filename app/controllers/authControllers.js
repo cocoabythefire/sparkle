@@ -3,7 +3,7 @@
 var tokenHeaderKey = 'x-glitter-token';
 
 angular.module('sparkleApp.auth', [])
-.controller('LoginCtrl', ['$scope', '$cookies', '$location', 'Auth', function($scope, $cookies, $location, Auth) {
+.controller('LoginCtrl', ['$scope', '$cookies', '$location', 'Auth', 'TokenHandler', function($scope, $cookies, $location, Auth, TokenHandler) {
 
   var getCurrentSessionToken = function() {
     return $cookies.getObject(tokenHeaderKey);
