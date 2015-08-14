@@ -32,17 +32,23 @@ listServices.factory('List', ['$resource', function($resource){
 }]);
 
 var userServices = angular.module('userServices', ['ngResource']);
-userServices.factory('Auth', ['$resource', function($resource){
-  return $resource('/api/users/login', {}, {
+userServices.factory('Auth', ['$resource', '$cookies', function($resource, $cookies){
+  var baseURL = '/api/users';
+  return $resource(baseURL, {}, {
     login: {
+      url: baseURL + '/login',
       method:'POST',
-      transformResponse: function(data, headers, status){
+      transformResponse: function(data, headers){
         var response = {};
         response.data = data;
         response.headers = headers();
-        response.status = status;
         return response;
       }
+    },
+    logout: {
+      url: baseURL + '/logout',
+      method:'DELETE',
+      headers: {'x-glitter-token': $cookies.getObject('x-glitter-token')}
     }
   });
 }]);
