@@ -1,22 +1,18 @@
 'use strict';
 
-var tokenHeaders = {'x-glitter-token': 'abc1234'};
-
 var placeServices = angular.module('placeServices', ['ngResource']);
 placeServices.factory('Place', ['$resource', function($resource) {
   return $resource('/api/lists/:listId/places/:placeId', { listId: '@listId', placeId: '@placeId' }, {
-    get: { method:'GET', headers: tokenHeaders },
+    get: { method:'GET' },
     query: {
       url: '/api/places/',
-      method: 'GET',
-      headers: tokenHeaders
+      method: 'GET'
     },
-    save: { method:'POST', headers: tokenHeaders },
-    remove: { method:'DELETE', headers: tokenHeaders },
+    save: { method:'POST' },
+    remove: { method:'DELETE' },
     delete: {
       url: '/api/places/:placeId',
-      method:'DELETE',
-      headers: tokenHeaders
+      method:'DELETE'
     }
   });
 }]);
@@ -24,10 +20,10 @@ placeServices.factory('Place', ['$resource', function($resource) {
 var listServices = angular.module('listServices', ['ngResource']);
 listServices.factory('List', ['$resource', function($resource){
   return $resource('/api/lists/:id', {}, {
-    get: { method:'GET', headers: tokenHeaders },
-    query: { method:'GET', headers: tokenHeaders },
-    save: { method:'POST', headers: tokenHeaders },
-    delete: { method:'DELETE', headers: tokenHeaders }
+    get: { method:'GET'},
+    query: { method:'GET'},
+    save: { method:'POST'},
+    delete: { method:'DELETE'}
   });
 }]);
 
@@ -48,6 +44,16 @@ authServices.factory('Auth', ['$resource', '$cookies', function($resource, $cook
       logout: {
         url: baseURL + '/logout',
         method:'DELETE',
+      },
+      signup: {
+        url: baseURL + '/signup',
+        method:'POST',
+        transformResponse: function(data, headers) {
+          var response = {};
+          response.data = data;
+          response.headers = headers();
+          return response;
+        }
       }
     });
 }]);

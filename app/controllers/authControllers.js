@@ -48,4 +48,16 @@ angular.module('sparkleApp.auth', [])
       });
     }
   };
+
+  $scope.signup = function() {
+    Auth.signup({ username: $scope.formUsername, password: $scope.formPassword }).$promise
+    .then(function(result) {
+      $cookies.putObject(tokenHeaderKey, result.headers[tokenHeaderKey]);
+      console.log('Signup successful');
+      $location.path('/');
+    }, function(error) {
+      console.log(error);
+    });
+
+  };
 }]);
