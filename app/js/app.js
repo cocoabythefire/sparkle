@@ -3,6 +3,7 @@
 angular.module('sparkleApp', [
   'ngRoute',
   'ngCookies',
+  'ngLodash',
   'sparkleApp.version',
   'sparkleApp.profile',
   'sparkleApp.places',

@@ -1,15 +1,17 @@
 <div ng-controller="PlaceListCtrl">
   <h1>The {{list.name}}</span> List!</h1>
 
-  <form ng-submit="createPlace(place.name)" novalidate>
-      Create Place:
-      <input type="text" ng-model="place.name" ng-model-options="{ debounce: 250 }" /><br />
-      <input type="submit" id="savePlace" value="Create" />
+  <h2>Find Places</h2>
+  <form ng-submit="createOrAdd(place.name)" novalidate>
+      Place:
+      <input type="text" ng-model="place.name" ng-model-options="{ debounce: 250 }" list="placeOptions" /><br />
+      <input type="submit" id="savePlace" value="Add" />
   </form>
   </br>
 
-  <select ng-model="selectedPlace" ng-options="place as place.name for place in places"></select>
-  <button ng-click="addPlace(selectedPlace.id)"> Add </button>
+   <datalist id="placeOptions">
+      <option ng-repeat="p in places | orderBy:'name'" value="{{ p.name }}" ></option>
+  </datalist>
 
   <h2> The Places Are...</h2>
   <div id="list-places" ng-model="listPlaces">
