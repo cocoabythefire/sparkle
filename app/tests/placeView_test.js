@@ -44,6 +44,7 @@ describe('sparkleApp.places module', function() {
 
     beforeEach(module('sparkleApp.places'));
     beforeEach(module('placeServices'));
+    beforeEach(module('ngLodash'));
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
