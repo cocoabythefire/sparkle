@@ -13,6 +13,11 @@ angular.module('sparkleApp.auth', [])
     $cookies.remove(tokenHeaderKey);
   };
 
+  $scope.userIsLoggedIn = function() {
+    if (getCurrentSessionToken()) { return true; }
+    else { return false; }
+  };
+
   $scope.login = function() {
     var currentSessionToken = getCurrentSessionToken();
     if (!currentSessionToken) {

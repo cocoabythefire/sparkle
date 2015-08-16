@@ -7,7 +7,6 @@ angular.module('sparkleApp.places', [])
   });
 
   $scope.findExistingPlace = function(placeName) {
-    console.log('find ' + placeName);
     return _.find($scope.places, 'name', placeName);
   }
 
