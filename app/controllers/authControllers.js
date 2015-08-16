@@ -21,7 +21,8 @@ angular.module('sparkleApp.auth', [])
         $cookies.putObject(tokenHeaderKey, result.headers[tokenHeaderKey]);
         console.log('Login successful');
         $location.path('/');
-      }, function(error) {
+      })
+      .catch(function(error) {
         if (error.status == 403) {
           console.log('Username and/or password incorrect!');
         }
@@ -43,8 +44,11 @@ angular.module('sparkleApp.auth', [])
     }
     else {
       Auth.logout().$promise.then(function(result) {
-      console.log('Logout successful');
-      clearSessionToken();
+        console.log('Logout successful');
+        clearSessionToken();
+      })
+      .catch(function(error) {
+        console.log(error);
       });
     }
   };
@@ -55,7 +59,8 @@ angular.module('sparkleApp.auth', [])
       $cookies.putObject(tokenHeaderKey, result.headers[tokenHeaderKey]);
       console.log('Signup successful');
       $location.path('/');
-    }, function(error) {
+    })
+    .catch(function(error) {
       console.log(error);
     });
 
