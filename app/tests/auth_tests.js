@@ -23,5 +23,13 @@ describe('sparkleApp.auth module', function() {
       expect(loginCtrl).to.not.be.undefined;
     });
 
+    it('should have a working Auth service', inject(['Auth',
+      function(Auth) {
+        expect(Auth.login()).not.to.equal(null);
+        expect(Auth.logout()).not.to.equal(null);
+        expect(Auth.signup()).not.to.equal(null);
+      }])
+    );
+
   });
 });
