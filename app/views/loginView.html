@@ -1,19 +1,19 @@
 <div ng-controller='LoginCtrl'>
-  <div id="login" ng-show="!userIsLoggedIn()">
+  <div class="login-section" ng-show="!userIsLoggedIn()">
     <h1>Login</h1>
     <form ng-submit="login()" novalidate>
-        <span> Username: <input type="text" ng-model="formUsername" ng-model-options="{ debounce: 250 }" /></span>
+        <span> Username: <input type="text" class="username" ng-model="formUsername" ng-model-options="{ debounce: 250 }" /></span>
         </br>
-        <span> Password: <input type="text" ng-model="formPassword" ng-model-options="{ debounce: 250 }" /></span>
+        <span> Password: <input type="text" class="password" ng-model="formPassword" ng-model-options="{ debounce: 250 }" /></span>
         </br>
-        <input type="submit" id="login" value="Login" />
+        <input type="submit" class="login-button" value="Login" />
     </form>
     </br>
-    <button ng-click="signup()"> Sign Up </button>
+    <button ng-class="signup-button" ng-click="signup()"> Sign Up </button>
   </div>
   <div ng-show="userIsLoggedIn()">
     <h2>LogOut</h2>
-    <button ng-click="logout()"> Log Out </button>
+    <button ng-class="logout-button" ng-click="logout()"> Log Out </button>
     </br>
   </div>
 </div>
