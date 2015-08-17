@@ -8,36 +8,20 @@ describe('sparkleApp.lists module', function() {
     var result = {
       lists: [{
         "id": 1,
-        "name": "Coffee Shops",
-        "snippet": "Where to get your caffeine"
+        "name": "Coffee Shops"
+        // "snippet": "Where to get your caffeine"
        },
        {
         "id": 2,
-        "name": "Pizza Places",
-        "snippet": "Best slices in the city"
+        "name": "Pizza Places"
+        // "snippet": "Best slices in the city"
        },
        {
         "id": 3,
-        "name": "Sweet Treats",
-        "snippet": "Indulgence time!"
+        "name": "Sweet Treats"
+        // "snippet": "Indulgence time!"
        }]
      };
-
-   beforeEach(function(){
-      jasmine.addMatchers({
-        toEqualData: function(util, customEqualityTesters) {
-          return {
-            compare: function(actual, expected) {
-              var passed = angular.equals(actual, expected);
-              return {
-                pass: passed,
-                message: 'Expected ' + actual + (passed ? '' : ' not') + ' to equal ' + expected
-              };
-            }
-          };
-        }
-       });
-    });
 
     beforeEach(module('sparkleApp.lists'));
     beforeEach(module('listServices'));
@@ -51,16 +35,16 @@ describe('sparkleApp.lists module', function() {
     }));
 
     it('should create a list controller', function() {
-      expect(listCtrl).toBeDefined();
+      expect(listCtrl).to.not.be.undefined;
     });
 
     //TODO need to bring this test back
 
     // it('should create a list model with 3 lists', function() {
-    //   expect(scope.lists).not.toBeDefined();
+    //   expect(scope.lists).to.be.undefined;
     //   $httpBackend.flush();
-    //   expect(scope.lists).toEqualData(result.lists);
-    //   expect(scope.lists.length).toBe(3);
+    //   expect(scope.lists).to.equal(result.lists);
+    //   expect(scope.lists.length).to.equal(3);
     // });
   });
 });

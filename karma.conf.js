@@ -19,13 +19,22 @@ module.exports = function(config){
 
     autoWatch : true,
 
-    frameworks: ['mocha', 'chai', 'sinon', 'coverage'],
+    // frameworks: ['mocha', 'chai', 'sinon', 'coverage'],
+    frameworks: ['mocha', 'chai', 'sinon'],
+    reporters: ['progress', 'coverage'],
 
-    browsers : ['Chrome', 'PhantomJS'],
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'app/!(bower_components|tests)/**/*.js': ['coverage']
+    },
 
-    plugins : [
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            ],
+    browsers : ['PhantomJS'],
+
+    // plugins : [
+    //         'karma-chrome-launcher',
+    //         'karma-firefox-launcher',
+    //         ],
   });
 };

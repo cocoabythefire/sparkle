@@ -5,7 +5,7 @@ describe('sparkleApp.version module', function() {
 
   describe('version service', function() {
     it('should return current version', inject(function(version) {
-      expect(version).toEqual('0.1');
+      expect(version).to.equal('0.1');
     }));
   });
 });

@@ -8,39 +8,23 @@ describe('sparkleApp.places module', function() {
     var result = {
       places: [{
         "id": 1,
-        "name": "Barista",
+        "name": "Barista"
         // "type": "Coffee Shops",
         // "snippet": "Best latte in town!"
       },
       {
         "id": 2,
-        "name": "Coava",
+        "name": "Coava"
         // "type": "Coffee Shops",
         // "snippet": "Best espresso flavor"
       },
       {
         "id": 3,
-        "name": "Salt and Straw",
+        "name": "Salt and Straw"
         // "type": "Sweet Treats",
         // "snippet": "Amazing ice cream"
       }]
     };
-
-   beforeEach(function(){
-      jasmine.addMatchers({
-        toEqualData: function(util, customEqualityTesters) {
-          return {
-            compare: function(actual, expected) {
-              var passed = angular.equals(actual, expected);
-              return {
-                pass: passed,
-                message: 'Expected ' + actual + (passed ? '' : ' not') + ' to equal ' + expected
-              };
-            }
-          };
-        }
-       });
-    });
 
     beforeEach(module('sparkleApp.places'));
     beforeEach(module('placeServices'));
@@ -55,7 +39,7 @@ describe('sparkleApp.places module', function() {
     }));
 
     it('should create a place list controller', function() {
-      expect(placeListCtrl).toBeDefined();
+      expect(placeListCtrl).to.not.be.undefined;
     });
 
     //TODO fix this broken test due to route param stuff

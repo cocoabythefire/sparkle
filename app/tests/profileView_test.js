@@ -11,8 +11,8 @@ describe('sparkleApp.profile module', function() {
       var scope = {},
           profileViewCtrl = $controller('ProfileViewCtrl', { $scope: scope });
 
-      expect(profileViewCtrl).toBeDefined();
-      expect(scope.firstName).toBeDefined();
+      expect(profileViewCtrl).to.not.be.undefined;
+      expect(scope.firstName).to.not.be.undefined;
     }));
   });
 });
