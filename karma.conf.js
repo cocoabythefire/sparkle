@@ -19,21 +19,13 @@ module.exports = function(config){
 
     autoWatch : true,
 
-    frameworks: ['jasmine'],
+    frameworks: ['mocha', 'chai', 'sinon', 'coverage'],
 
-    browsers : ['Chrome'],
+    browsers : ['Chrome', 'PhantomJS'],
 
     plugins : [
             'karma-chrome-launcher',
             'karma-firefox-launcher',
-            'karma-jasmine',
-            'karma-junit-reporter'
             ],
-
-    junitReporter : {
-      outputFile: 'test_out/unit.xml',
-      suite: 'unit'
-    }
-
   });
 };
