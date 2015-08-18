@@ -19,7 +19,6 @@ module.exports = function(config){
 
     autoWatch : true,
 
-    // frameworks: ['mocha', 'chai', 'sinon', 'coverage'],
     frameworks: ['mocha', 'chai', 'sinon'],
     reporters: ['progress', 'coverage'],
 
@@ -32,9 +31,5 @@ module.exports = function(config){
 
     browsers : ['PhantomJS'],
 
-    // plugins : [
-    //         'karma-chrome-launcher',
-    //         'karma-firefox-launcher',
-    //         ],
   });
 };
