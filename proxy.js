@@ -9,12 +9,7 @@ var PROXY_PORT = process.env.PROXY || 3000;
 
 var proxy = require('http-proxy').createProxyServer({
   target: 'http://localhost:' + PROXY_PORT,
-  ws: true,
   changeOrigin: true
-});
-
-proxy.on('upgrade', function (req, socket, head) {
-  proxy.ws(req, socket, head);
 });
 
 proxy.on('error', function (e) {
