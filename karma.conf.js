@@ -11,7 +11,6 @@ module.exports = function(config){
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/ng-lodash/ng-lodash.js',
       'app/js/*.js',
-      'app/components/**/*.js',
       'app/views/**/*.js',
       'app/controllers/**/*.js',
       'app/tests/**/*.js',
