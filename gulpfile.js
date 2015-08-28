@@ -20,7 +20,7 @@ var paths = {
   ],
   tests: ['test/**/*'],
   server: 'proxy.js',
-  dest: 'dest'
+  dest: 'build'
 };
 
 var recordError = function() {
