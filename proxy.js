@@ -18,7 +18,7 @@ proxy.on('error', function (e) {
 });
 
 app.use(morgan('dev'));
-app.use(express.static('app'));
+app.use(express.static('dest'));
 app.use(function(req, res, next) {
   if (req.url.match(/^\/api\//)) {
     return proxy.web(req, res);

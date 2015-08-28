@@ -1,0 +1,16 @@
+{
+    "env": {
+        "mocha": true
+    },
+    "globals": {
+        "expect": false,
+        "inject": false,
+        "module": false,
+        "describe": false,
+        "it": false,
+        "before": false,
+        "beforeEach": false,
+        "after": false,
+        "afterEach": false
+    }
+}
