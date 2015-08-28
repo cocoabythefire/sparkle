@@ -57,14 +57,14 @@ gulp.task('build', function() {
     .pipe(plumber({ errorHandler: recordError }))
 
     // js
+    .pipe(sourcemaps.init())
     .pipe(vendorJSFilter)
     .pipe(jsFilter)
-    .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(vendorJSFilter.restore)
     .pipe(concat('scripts/application.js'))
     // .pipe(uglify())
-    .pipe(sourcemaps.write('.'))
+    .pipe(sourcemaps.write())
     .pipe(jsFilter.restore)
 
     // sass
