@@ -16,6 +16,7 @@ var paths = {
     './*bower_components/angular-resource/angular-resource.js',
     './*bower_components/angular-cookies/angular-cookies.js',
     './*bower_components/ng-lodash/ng-lodash.js',
+    './*bower_components/bootstrap/dist/js/bootstrap.min.js',
     'app/**/*',
   ],
   tests: ['test/**/*'],

@@ -10,6 +10,7 @@ module.exports = function(config){
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/ng-lodash/ng-lodash.js',
+      'app/bower_components/bootstrap/dist/js/bootstrap.min.js',
       'app/js/*.js',
       'app/views/**/*.js',
       'app/controllers/**/*.js',
