@@ -39,5 +39,5 @@ angular.module('sparkleApp', [
       redirectTo: '/places'
     });
 
-    $httpProvider.interceptors.push('sendTokenHeaders');
+  $httpProvider.interceptors.push('sendTokenHeaders');
 }]);

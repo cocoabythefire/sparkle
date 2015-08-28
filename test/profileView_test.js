@@ -9,7 +9,7 @@ describe('sparkleApp.profile module', function() {
 
     it('should create a profile controller with valid name', inject(function($controller) {
       var scope = {},
-          profileViewCtrl = $controller('ProfileViewCtrl', { $scope: scope });
+        profileViewCtrl = $controller('ProfileViewCtrl', { $scope: scope });
 
       expect(profileViewCtrl).to.not.be.undefined;
       expect(scope.firstName).to.not.be.undefined;

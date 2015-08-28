@@ -95,7 +95,7 @@ listServices.factory('List', ['$resource', function($resource){
 // Should rework login, logout, and signup.
 
 var authServices = angular.module('authServices', ['ngResource']);
-authServices.factory('Auth', ['$resource', '$cookies', function($resource, $cookies) {
+authServices.factory('Auth', ['$resource', function($resource) {
   var baseURL = '/api/users';
   return $resource(baseURL, {}, {
 
@@ -127,7 +127,7 @@ authServices.factory('Auth', ['$resource', '$cookies', function($resource, $cook
      */
     logout: {
       url: baseURL + '/logout',
-      method:'DELETE',
+      method:'DELETE'
     },
 
     /**
@@ -184,8 +184,8 @@ userServices.factory('User', ['$resource', function($resource) {
    * @return {Object} Standard resource response object.
    */
   return $resource('/api/profile', {}, {
-      getProfile: {
-        method: 'GET'
-      }
-    });
+    getProfile: {
+      method: 'GET'
+    }
+  });
 }]);

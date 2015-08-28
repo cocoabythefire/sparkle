@@ -18,13 +18,14 @@ app.controller('ListCtrl', ['$scope', '$routeParams', '$location', 'List', funct
   List.get({ id: $routeParams.id}).$promise.then(function(result) {
     $scope.list = result.list;
     $scope.listPlaces = result.places;
-  }).catch(function(error) {
-      if (error.status == 401) {
-        console.log('Must login to view a list.');
-      } else {
-        console.log(error);
-      }
-      $location.path('/login');
+  })
+  .catch(function(error) {
+    if (error.status == 401) {
+      console.log('Must login to view a list.');
+    } else {
+      console.log(error);
+    }
+    $location.path('/login');
   });
 
   $scope.updateLists = function() {

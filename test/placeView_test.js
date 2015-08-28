@@ -6,24 +6,25 @@ describe('sparkleApp.places module', function() {
     var scope, placeListCtrl, $httpBackend;
 
     var result = {
-      places: [{
-        "id": 1,
-        "name": "Barista"
-        // "type": "Coffee Shops",
-        // "snippet": "Best latte in town!"
-      },
-      {
-        "id": 2,
-        "name": "Coava"
-        // "type": "Coffee Shops",
-        // "snippet": "Best espresso flavor"
-      },
-      {
-        "id": 3,
-        "name": "Salt and Straw"
-        // "type": "Sweet Treats",
-        // "snippet": "Amazing ice cream"
-      }]
+      places: [
+        {
+          'id': 1,
+          'name': 'Barista'
+          // 'type': 'Coffee Shops',
+          // 'snippet': 'Best latte in town!'
+        },
+        {
+          'id': 2,
+          'name': 'Coava'
+          // 'type': 'Coffee Shops',
+          // 'snippet': 'Best espresso flavor'
+        },
+        {
+          'id': 3,
+          'name': 'Salt and Straw'
+          // 'type': 'Sweet Treats',
+          // 'snippet': 'Amazing ice cream'
+        }]
     };
 
     beforeEach(module('sparkleApp.places'));

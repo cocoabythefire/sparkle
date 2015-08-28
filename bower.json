@@ -11,7 +11,8 @@
     "angular-loader": "~1.4.0",
     "angular-mocks": "~1.4.0",
     "angular-resource": "~1.4.0",
-    "angular-cookies": "~1.4.0"
+    "angular-cookies": "~1.4.0",
+    "bootstrap-sass": "~3.3.5"
   },
   "resolutions": {
     "angular": "~1.4.0"

@@ -34,18 +34,18 @@ angular.module('sparkleApp.auth', [])
       });
     } else {
       //TODO what should this do
-      console.log("User is already logged in");
+      console.log('User is already logged in');
     }
 
     //clear the login form
-    $scope.formUsername = "";
-    $scope.formPassword = "";
+    $scope.formUsername = '';
+    $scope.formPassword = '';
   };
 
   $scope.logout = function() {
     var currentSessionToken = getCurrentSessionToken();
     if (!currentSessionToken) {
-      console.log('Cannot logout. The user is not logged in.')
+      console.log('Cannot logout. The user is not logged in.');
     }
     else {
       Auth.logout().$promise.then(function(result) {

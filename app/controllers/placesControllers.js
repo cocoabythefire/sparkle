@@ -8,7 +8,7 @@ angular.module('sparkleApp.places', [])
 
   $scope.findExistingPlace = function(placeName) {
     return _.find($scope.places, 'name', placeName);
-  }
+  };
 
   $scope.createOrAdd = function(placeName) {
     var existingPlace = $scope.findExistingPlace(placeName);
@@ -20,10 +20,10 @@ angular.module('sparkleApp.places', [])
       $scope.createPlace(placeName);
       console.log('create new');
     } else {
-      console.log("place name cannot be blank");
+      console.log('place name cannot be blank');
     }
     $scope.place = {};
-  }
+  };
 
   $scope.createPlace = function(placeName) {
     Place.save({ placeName: placeName, listId: $routeParams.id }).$promise.then(function(result) {
@@ -58,7 +58,7 @@ angular.module('sparkleApp.places', [])
     });
   };
 
-  $scope.updateListPlaces = function(listId) {
+  $scope.updateListPlaces = function() {
     Place.get({ listId: $routeParams.id }).$promise.then(function(result) {
       $scope.listPlaces = result.places;
     });

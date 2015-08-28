@@ -6,22 +6,23 @@ describe('sparkleApp.lists module', function() {
     var scope, listCtrl, $httpBackend;
 
     var result = {
-      lists: [{
-        "id": 1,
-        "name": "Coffee Shops"
-        // "snippet": "Where to get your caffeine"
-       },
-       {
-        "id": 2,
-        "name": "Pizza Places"
-        // "snippet": "Best slices in the city"
-       },
-       {
-        "id": 3,
-        "name": "Sweet Treats"
-        // "snippet": "Indulgence time!"
-       }]
-     };
+      lists: [
+        {
+          'id': 1,
+          'name': 'Coffee Shops'
+          // 'snippet': 'Where to get your caffeine'
+        },
+        {
+          'id': 2,
+          'name': 'Pizza Places'
+          // 'snippet': 'Best slices in the city'
+        },
+        {
+          'id': 3,
+          'name': 'Sweet Treats'
+          // 'snippet': 'Indulgence time!'
+        }]
+    };
 
     beforeEach(module('sparkleApp.lists'));
     beforeEach(module('listServices'));

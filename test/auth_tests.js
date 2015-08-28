@@ -3,7 +3,7 @@
 describe('sparkleApp.auth module', function() {
 
   describe('auth controller', function() {
-    var scope, loginCtrl, $httpBackend, $cookies;
+    var scope, loginCtrl, $httpBackend;
     var result = {};
 
     beforeEach(module('sparkleApp.auth'));
@@ -11,12 +11,11 @@ describe('sparkleApp.auth module', function() {
     beforeEach(module('ngCookies'));
 
 
-    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, _$cookies_) {
+    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
       $httpBackend = _$httpBackend_;
       $httpBackend.expectGET('/api/login').respond(result);
       scope = $rootScope.$new();
       loginCtrl = $controller('LoginCtrl', {$scope: scope, $routeParams: {}});
-      $cookies = _$cookies_;
     }));
 
     it('should create a login controller', function() {
