@@ -48,7 +48,7 @@ angular.module('sparkleApp.auth', [])
       console.log('Cannot logout. The user is not logged in.');
     }
     else {
-      Auth.logout().$promise.then(function(result) {
+      Auth.logout().$promise.then(function(/*result*/) {
         console.log('Logout successful');
         clearSessionToken();
       })

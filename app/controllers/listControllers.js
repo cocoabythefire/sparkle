@@ -41,7 +41,7 @@ app.controller('ListCtrl', ['$scope', '$routeParams', '$location', 'List', funct
     });
   };
   $scope.createList = function(listName) {
-    List.save({ name: listName }).$promise.then(function(result) {
+    List.save({ name: listName }).$promise.then(function(/*result*/) {
       $scope.updateLists();
       $scope.list = {};
     }).catch(function(error) {
@@ -55,7 +55,7 @@ app.controller('ListCtrl', ['$scope', '$routeParams', '$location', 'List', funct
   };
 
   $scope.deleteList = function(listId) {
-    List.delete({ id: listId }).$promise.then(function(result) {
+    List.delete({ id: listId }).$promise.then(function(/*result*/) {
       $scope.updateLists();
     }).catch(function(error) {
       if (error.status == 401) {

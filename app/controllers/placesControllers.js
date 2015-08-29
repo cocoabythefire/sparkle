@@ -26,28 +26,28 @@ angular.module('sparkleApp.places', [])
   };
 
   $scope.createPlace = function(placeName) {
-    Place.save({ placeName: placeName, listId: $routeParams.id }).$promise.then(function(result) {
+    Place.save({ placeName: placeName, listId: $routeParams.id }).$promise.then(function(/*result*/) {
       $scope.updateListPlaces();
       $scope.updatePlaces();
     });
   };
 
   $scope.removePlace = function(placeId) {
-    Place.remove({ listId: $routeParams.id, placeId: placeId }).$promise.then(function(result) {
+    Place.remove({ listId: $routeParams.id, placeId: placeId }).$promise.then(function(/*result*/) {
       $scope.updatePlaces();
       $scope.updateListPlaces();
     });
   };
 
   $scope.addPlace = function(placeId) {
-    Place.save({ listId: $routeParams.id, placeId: placeId }).$promise.then(function(result) {
+    Place.save({ listId: $routeParams.id, placeId: placeId }).$promise.then(function(/*result*/) {
       $scope.updateListPlaces();
       $scope.selectedPlace = {};
     });
   };
 
   $scope.deletePlace = function(placeId) {
-    Place.delete({ placeId: placeId }).$promise.then(function(result) {
+    Place.delete({ placeId: placeId }).$promise.then(function(/*result*/) {
       $scope.updatePlaces();
     });
   };
