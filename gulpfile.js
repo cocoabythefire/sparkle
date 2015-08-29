@@ -30,7 +30,7 @@ var task = function(name) {
   };
 };
 
-gulp.task('serve', task('serve'));
+gulp.task('serve', ['build'], task('serve'));
 gulp.task('lint', task('lint'));
 gulp.task('build', task('build'));
 gulp.task('watch', task('watch'));
