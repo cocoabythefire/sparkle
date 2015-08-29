@@ -13,7 +13,7 @@ var paths = {
     'app/**/*.js'
   ],
   styles: ['app/**/*.{scss,css}'],
-  static: ['app/**/*!(*.js|*.scss|*.css)'],
+  static: ['app/**/!(*.js|*.scss|*.css)'],
   tests: ['test/**/*'],
   tasks: ['gulpfile.js', 'tasks/**/*.js'],
   server: 'proxy.js',
