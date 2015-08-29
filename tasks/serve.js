@@ -37,7 +37,7 @@ module.exports = function(paths) {
   if (!opened) {
     child.on('message', function(details) {
       opened = true;
-      open(details.url, process.env.GULP_OPEN_BROWSER);
+      open(details.url, process.env.BROWSER);
     });
   }
 
