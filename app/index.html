@@ -11,15 +11,18 @@
   <link rel="stylesheet" href="/styles/application.css">
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/login">Log In</a></li>
-    <li><a href="#/lists">My Lists</a></li>
-    <li><a href="#/places">All Places</a></li>
-    <li><a href="#/profile">My Profile</a></li>
-  </ul>
+  <nav>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="#/login">Log In</a></li>
+      <li role="presentation"><a href"#/lists">My Lists</a></li>
+      <li role="presentation"><a href="#/places">All Places</a></li>
+      <li role="presentation"><a href="#/profile">My Profile</a></li>
+    </ul>
+  </nav>
   <div ng-view></div>
-  <footer>Sparkle v1</footer>
+  <footer>
+    <p>Sparkle v1</p>
+  </footer>
   <script src="/scripts/application.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
 </html>

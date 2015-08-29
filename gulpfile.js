@@ -11,12 +11,13 @@ var sourcemaps = require('gulp-sourcemaps');
 
 var paths = {
   app: [
+    './*bower_components/jquery/dist/jquery.js',
     './*bower_components/angular/angular.js',
     './*bower_components/angular-route/angular-route.js',
     './*bower_components/angular-resource/angular-resource.js',
     './*bower_components/angular-cookies/angular-cookies.js',
-    './*bower_components/ng-lodash/ng-lodash.js',
-    './*bower_components/bootstrap-sass/assets/js/bootstrap.min.js',
+    './*bower_components/ng-lodash/build/ng-lodash.js',
+    './*bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
     'app/**/*',
   ],
   tests: ['test/**/*'],
@@ -70,7 +71,9 @@ gulp.task('build', function() {
 
     // sass
     .pipe(sassFilter)
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({
+      includePaths: ['./bower_components/bootstrap-sass/assets/stylesheets']
+    }).on('error', sass.logError))
     .pipe(sassFilter.restore)
 
     // css

@@ -12,7 +12,9 @@
     "angular-mocks": "~1.4.0",
     "angular-resource": "~1.4.0",
     "angular-cookies": "~1.4.0",
-    "bootstrap-sass": "~3.3.5"
+    "bootstrap-sass": "~3.3.5",
+    "jquery": "~2.1.4",
+    "ng-lodash": "~0.2.3"
   },
   "resolutions": {
     "angular": "~1.4.0"

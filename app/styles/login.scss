@@ -1,0 +1,20 @@
+.login-section {
+  padding: 4em 2em;
+  margin: 0em 6em;
+
+  form {
+    margin: 4em 0em;
+
+    input {
+      display: inline-block;
+      margin: 1em;
+      max-width: 60%;
+      min-width: 400px;
+    }
+  }
+
+  button {
+    width: 200px;
+    height: 50px;
+  }
+}

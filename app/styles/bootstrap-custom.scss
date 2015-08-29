@@ -4,6 +4,15 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+ // Override variables
+$brand-primary:         #56638a;
+$body-bg:               #fdfffc;
+$text-color:            #343434;
+
+$btn-primary-color:     #fff;
+$btn-primary-bg:        #60c1a9;
+$btn-primary-border:    darken($btn-primary-bg, 5%);
+
 // Core variables and mixins
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
