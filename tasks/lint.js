@@ -9,7 +9,7 @@ var plumber = require('gulp-plumber');
 module.exports = function(paths, util) {
   var jsFilter = filter(['**/*.js', '!bower_components/**/*']);
   var sources = []
-    .concat(paths.app)
+    .concat(paths.scripts)
     .concat(paths.tests)
     .concat(paths.server);
   return gulp.src(sources, { base: '.' })

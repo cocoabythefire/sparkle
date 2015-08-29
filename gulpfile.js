@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 
 var paths = {
-  app: [
+  scripts: [
     './*bower_components/jquery/dist/jquery.js',
     './*bower_components/angular/angular.js',
     './*bower_components/angular-route/angular-route.js',
@@ -9,9 +9,10 @@ var paths = {
     './*bower_components/angular-cookies/angular-cookies.js',
     './*bower_components/ng-lodash/build/ng-lodash.js',
     './*bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
-    'app/**/*',
+    'app/**/*.js',
   ],
-  appRoot: 'app',
+  styles: ['app/**/*.{scss,css}'],
+  static: ['app/**/*!(*.js|*.scss|*.css)'],
   tests: ['test/**/*'],
   server: 'proxy.js',
   dest: 'build'
@@ -31,8 +32,11 @@ var task = function(name) {
 };
 
 gulp.task('serve', ['build'], task('serve'));
+gulp.task('build', ['scripts', 'styles', 'static']);
+gulp.task('scripts', task('scripts'));
+gulp.task('styles', task('styles'));
+gulp.task('static', task('static'));
 gulp.task('lint', task('lint'));
-gulp.task('build', task('build'));
 gulp.task('watch', task('watch'));
 
 gulp.task('default', ['watch', 'lint', 'build', 'serve']);
