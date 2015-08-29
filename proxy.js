@@ -3,6 +3,7 @@
 var express = require('express');
 var app = express();
 var morgan = require('morgan');
+var Promise = require('bluebird');
 
 var PORT = process.env.PORT || 8000;
 var PROXY_PORT = process.env.PROXY || 3000;
@@ -26,11 +27,22 @@ app.use(function(req, res, next) {
   else { next(); }
 });
 
-var server = app.listen(PORT, function () {
+var start = function() {
+  return new Promise(function(resolve, reject) {
+    var server = app.listen(PORT, function (err) {
+      if (err) { return reject(err); }
+      console.log('Development listening at http://%s:%s w/ proxy to %s',
+        server.address().address,
+        server.address().port, PROXY_PORT);
+      resolve(server);
+    });
+  });
+};
 
-  var host = server.address().address;
-  var port = server.address().port;
+module.exports = {
+  app: app,
+  start: start,
+};
 
-  console.log('Development listening at http://%s:%s w/ proxy to %s', host, port, PROXY_PORT);
-
-});
+// start server if this is run directly
+if (require.main === module) { start(); }
