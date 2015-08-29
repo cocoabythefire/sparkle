@@ -1,17 +1,11 @@
-// app css stylesheet
-
-@import 'bootstrap-custom';
+@import 'bootstrap-customizations';
+@import 'bootstrap-components';
 @import 'nav';
 @import 'login';
 
 body {
-  padding: 2em 4em;
+  padding: 2em 0em;
   text-align: center;
-  font-family: 'Lato';
-
-  h1 {
-    font-size: 300%;
-  }
 
   footer {
     width: 100%;

@@ -11,15 +11,17 @@
   <link rel="stylesheet" href="/styles/application.css">
 </head>
 <body>
-  <nav>
-    <ul class="nav nav-pills">
-      <li role="presentation" class="active"><a href="#/login">Log In</a></li>
-      <li role="presentation"><a href="#/lists">My Lists</a></li>
-      <li role="presentation"><a href="#/places">All Places</a></li>
-      <li role="presentation"><a href="#/profile">My Profile</a></li>
-    </ul>
-  </nav>
-  <div ng-view></div>
+  <div class="container">
+    <nav>
+      <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#/login">Log In</a></li>
+        <li role="presentation"><a href="#/lists">My Lists</a></li>
+        <li role="presentation"><a href="#/places">All Places</a></li>
+        <li role="presentation"><a href="#/profile">My Profile</a></li>
+      </ul>
+    </nav>
+    <div ng-view></div>
+  </div>
   <footer>
     <p>Sparkle v1</p>
   </footer>

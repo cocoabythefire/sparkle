@@ -3,16 +3,17 @@
   <form ng-submit="createList(list.name)" novalidate>
       Create List:
       <input type="text" ng-model="list.name" ng-model-options="{ debounce: 250 }" /><br />
-      <input type="submit" id="saveList" value="Save" />
+      <button type="submit" class="btn btn-primary btn-lg" id="saveList" value="Save" />
   </form>
   </br>
 
   Search: <input ng-model="query">
   <h2> All Lists </h2>
   <div id="all-lists" ng-model="lists">
-    <ul>
+    <ul class="list-unstyled">
       <li ng-repeat="list in lists | filter:query | orderBy:'name'">
-        <span> <a href='#/lists/{{ list.id }}'> {{ list.name }} </a><button ng-click="deleteList(list.id)">Delete</button></span
+        <span><a href='#/lists/{{ list.id }}'> {{ list.name }}</a>
+        <button type="button" class="btn btn-default" ng-click="deleteList(list.id)">Delete</button></span>
       </li>
     </ul>
   </div>

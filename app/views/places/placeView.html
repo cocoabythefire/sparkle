@@ -3,10 +3,11 @@
 
   Search: <input ng-model="query">
   <div id="place-list" ng-model="places">
-    <ul>
+    <ul class="list-unstyled">
       <li ng-repeat="place in places | filter:query | orderBy:'name'">
         <span> {{ place.name }}
-          <button ng-click="deletePlace(place.id)">Delete</button>
+          <button type="button" class="btn btn-default" ng-click="deletePlace(place.id)">
+          Delete <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
         </span>
         <p> {{ place.type }} </p>
       </li>
