@@ -50,17 +50,15 @@ process.on('exit', function() {
 });
 
 // when executed as a forked module, it receives the module path for the server
-// to run as the first argument. that module contains an export of `app` and
-// `start`. we can configure the app as we wish, then start it. once it's
-// running, we send a message back to the parent process with details about the
-// running app.
+// to run as the first argument. that module must actually start the server &
+// export a promise that resolves when the server has started. once the server
+// is running, we send a message back to the parent process with details about
+// the running app.
 if (require.main === module && process.send) {
   var args = process.argv.slice(2);
-  var module = require(path.join(process.cwd(), args[0]));
-  var app = module.app;
-  var start = module.start;
+  var promise = require(path.join(process.cwd(), args[0]));
 
-  start().then(function(server) {
+  promise.then(function(server) {
     var url = util.format('http://%s:%s/',
       server.address().address,
       server.address().port)

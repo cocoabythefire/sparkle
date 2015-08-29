@@ -3,6 +3,7 @@
 var express = require('express');
 var app = express();
 var morgan = require('morgan');
+var livereload = require('connect-livereload');
 var Promise = require('bluebird');
 
 var PORT = process.env.PORT || 8000;
@@ -18,6 +19,7 @@ proxy.on('error', function (e) {
   console.log(e);
 });
 
+app.use(livereload());
 app.use(morgan('dev'));
 app.use(express.static('build'));
 app.use(function(req, res, next) {
@@ -27,22 +29,12 @@ app.use(function(req, res, next) {
   else { next(); }
 });
 
-var start = function() {
-  return new Promise(function(resolve, reject) {
-    var server = app.listen(PORT, function (err) {
-      if (err) { return reject(err); }
-      console.log('Development listening at http://%s:%s w/ proxy to %s',
-        server.address().address,
-        server.address().port, PROXY_PORT);
-      resolve(server);
-    });
+module.exports = new Promise(function(resolve, reject) {
+  var server = app.listen(PORT, function (err) {
+    if (err) { return reject(err); }
+    console.log('Development listening at http://%s:%s w/ livereload & proxy to %s',
+      server.address().address,
+      server.address().port, PROXY_PORT);
+    resolve(server);
   });
-};
-
-module.exports = {
-  app: app,
-  start: start,
-};
-
-// start server if this is run directly
-if (require.main === module) { start(); }
+});

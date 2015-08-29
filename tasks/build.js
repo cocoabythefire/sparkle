@@ -9,6 +9,7 @@ var concat = require('gulp-concat');
 var filter = require('gulp-filter');
 var uglify = require('gulp-uglify');
 var plumber = require('gulp-plumber');
+var livereload = require('gulp-livereload');
 var sourcemaps = require('gulp-sourcemaps');
 
 module.exports = function(paths, util) {
@@ -41,6 +42,7 @@ module.exports = function(paths, util) {
     // css
     .pipe(cssFilter)
     .pipe(concat('styles/application.css'))
+    .pipe(livereload())
     .pipe(cssFilter.restore)
 
     // write result

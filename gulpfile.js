@@ -11,6 +11,7 @@ var paths = {
     './*bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
     'app/**/*',
   ],
+  appRoot: 'app',
   tests: ['test/**/*'],
   server: 'proxy.js',
   dest: 'build'
