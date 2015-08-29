@@ -13,7 +13,10 @@ var paths = {
     'app/**/*.js'
   ],
   styles: ['app/**/*.{scss,css}'],
-  static: ['app/**/!(*.js|*.scss|*.css)'],
+  static: [
+    'app/**/!(*.js|*.scss|*.css)',
+    'bower_components/bootstrap-sass/assets/*fonts/**/*'
+  ],
   tests: ['test/**/*'],
   tasks: ['gulpfile.js', 'tasks/**/*.js'],
   server: 'proxy.js',
