@@ -2,17 +2,13 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var babel = require('gulp-babel');
 var order = require('gulp-order');
-var eslint = require('gulp-eslint');
 var cached = require('gulp-cached');
 var concat = require('gulp-concat');
 var filter = require('gulp-filter');
-var uglify = require('gulp-uglify');
 var plumber = require('gulp-plumber');
 var remember = require('gulp-remember');
 var livereload = require('gulp-livereload');
-var sourcemaps = require('gulp-sourcemaps');
 
 module.exports = function(paths, util) {
   var sassFilter = filter([

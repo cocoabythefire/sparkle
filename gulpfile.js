@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var gulp = require('gulp');
 
 var paths = {
@@ -9,25 +10,30 @@ var paths = {
     './*bower_components/angular-cookies/angular-cookies.js',
     './*bower_components/ng-lodash/build/ng-lodash.js',
     './*bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
-    'app/**/*.js',
+    'app/**/*.js'
   ],
   styles: ['app/**/*.{scss,css}'],
   static: ['app/**/*!(*.js|*.scss|*.css)'],
   tests: ['test/**/*'],
+  tasks: ['gulpfile.js', 'tasks/**/*.js'],
   server: 'proxy.js',
   dest: 'build'
 };
 
+var alert = _.debounce(function() {
+  process.stderr.write('\x07'); // beep
+}, 100);
+
 var util = {
   error: function() {
-    process.stderr.write('\x07'); // beep
+    alert();
     process.exitCode = 1;
   }
 };
 
 var task = function(name) {
   return function() {
-    return require('./tasks/' + name)(paths, util)
+    return require('./tasks/' + name)(paths, util);
   };
 };
 

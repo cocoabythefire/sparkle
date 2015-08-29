@@ -11,6 +11,7 @@ module.exports = function(paths, util) {
   var sources = []
     .concat(paths.scripts)
     .concat(paths.tests)
+    .concat(paths.tasks)
     .concat(paths.server);
   return gulp.src(sources, { base: '.' })
     .pipe(plumber({ errorHandler: util.error }))

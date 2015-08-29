@@ -61,7 +61,7 @@ if (require.main === module && process.send) {
   promise.then(function(server) {
     var url = util.format('http://%s:%s/',
       server.address().address,
-      server.address().port)
+      server.address().port);
     process.send({ url: url });
     process.on('message', function() {
       process.exit(0);

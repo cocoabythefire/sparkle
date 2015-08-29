@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 
-module.exports = function(paths, util) {
+module.exports = function(paths) {
   return gulp.src(paths.static)
-    .pipe(gulp.dest(paths.dest))
+    .pipe(gulp.dest(paths.dest));
 };

@@ -47,6 +47,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-sinon": "^1.0.4",
     "loader.js": "^3.3.0",
+    "lodash": "^3.10.1",
     "mocha": "^2.2.5",
     "morgan": "^1.6.1",
     "open": "0.0.5",
