@@ -1,0 +1,47 @@
+$discover-header-height: 350px;
+$discover-img-overlay:   rgba(23,25,24,.5);
+$discover-input-bkgd:    rgba(12,18,27, .8);
+$discover-input-border:  rgba(226,226,226, .2);
+
+.discover-section {
+  .discover-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $discover-header-height;
+    background-image: url('./images/snow.png');
+    background-color: black;
+    background-size: cover;
+    z-index:-1;
+  }
+  .discover-black-box {
+    background-color: $discover-img-overlay;
+    width: 100%;
+    height:100%;
+  }
+  .discover-search {
+    margin: 8em 20%;
+    position: absolute;
+
+    h2 {
+      color: white;
+    }
+
+    .input-group {
+      margin-top: 2em;
+      input {
+        background-color: $discover-input-bkgd;
+        border-color: $discover-input-border;
+        color: white;
+      }
+    }
+  }
+
+  .discover-results {
+    margin-top: $discover-header-height;
+    .well {
+      height: 12em;
+    }
+  }
+}

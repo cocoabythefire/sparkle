@@ -8,6 +8,7 @@ angular.module('sparkleApp', [
   'sparkleApp.places',
   'sparkleApp.lists',
   'sparkleApp.auth',
+  'sparkleApp.discover',
   'placeServices',
   'listServices',
   'authServices',
@@ -15,7 +16,11 @@ angular.module('sparkleApp', [
 ])
 .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   $routeProvider.
-    when('/places', {
+    when('/discover', {
+      templateUrl: 'views/discover/discoverView.html',
+      controller: 'DiscoverCtrl'
+    })
+    .when('/places', {
       templateUrl: 'views/places/placeView.html',
       controller: 'PlaceListCtrl'
     })

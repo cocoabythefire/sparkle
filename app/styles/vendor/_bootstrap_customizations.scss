@@ -10,3 +10,5 @@ $btn-primary-border: darken($btn-primary-bg, 5%);
 
 $font-size-base: 16px;
 $font-size-h1: floor(($font-size-base * 3.6));
+
+$input-border-focus: $body-bg;

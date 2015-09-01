@@ -11,17 +11,31 @@
   <link rel="stylesheet" href="/styles/application.css">
 </head>
 <body>
-  <div class="container">
-    <nav>
-      <ul class="nav nav-pills">
-        <li role="presentation" class="active"><a href="#/login">Log In</a></li>
-        <li role="presentation"><a href="#/lists">My Lists</a></li>
-        <li role="presentation"><a href="#/places">All Places</a></li>
-        <li role="presentation"><a href="#/profile">My Profile</a></li>
-      </ul>
-    </nav>
-    <div ng-view></div>
-  </div>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsed" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Sparkle</a>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapsed">
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><a href="#/login">Log In</a></li>
+          <li role="presentation"><a href="#/discover">Discover</a></li>
+          <li role="presentation"><a href="#/lists">My Lists</a></li>
+          <li role="presentation"><a href="#/places">All Places</a></li>
+          <li role="presentation"><a href="#/profile">Profile</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div ng-view></div>
+
   <footer>
     <p>Sparkle v1</p>
   </footer>
