@@ -15,7 +15,7 @@
 
   <h2> The Places Are...</h2>
   <div id="list-places" ng-model="listPlaces">
-    <ul>
+    <ul class="list-unstyled">
       <li ng-repeat="place in listPlaces | filter:query | orderBy:'name'">
         <span>
           {{ place.name }}

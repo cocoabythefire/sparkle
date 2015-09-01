@@ -1,21 +1,26 @@
 <div ng-controller="ListCtrl">
-  <h1>My Lists</h1>
-  <form ng-submit="createList(list.name)" novalidate>
-      Create List:
-      <input type="text" ng-model="list.name" ng-model-options="{ debounce: 250 }" /><br />
-      <button type="submit" class="btn btn-primary btn-lg" id="saveList" value="Save" />
-  </form>
-  </br>
+  <div class="create-list-section container-fluid">
+    <h1>My Lists</h1>
+    <form ng-submit="createList(list.name)" novalidate>
+        <div class="form-group">
+          <label for="list-name">Create List</label>
+          <input type="text" class="form-control" id="list-name" placeholder=
+          "best coffee shops" ng-model="list.name" ng-model-options="{ debounce: 250 }" />
+          <button type="submit" class="btn btn-default" id="saveList">Save</button>
+        </div>
+    </form>
+    </br>
 
-  Search: <input ng-model="query">
-  <h2> All Lists </h2>
-  <div id="all-lists" ng-model="lists">
-    <ul class="list-unstyled">
-      <li ng-repeat="list in lists | filter:query | orderBy:'name'">
-        <span><a href='#/lists/{{ list.id }}'> {{ list.name }}</a>
-        <button type="button" class="btn btn-default" ng-click="deleteList(list.id)">Delete</button></span>
-      </li>
-    </ul>
+    Search: <input ng-model="query">
+    <h2> All Lists </h2>
+    <div id="all-lists" ng-model="lists">
+      <ul class="list-unstyled">
+        <li ng-repeat="list in lists | filter:query | orderBy:'name'">
+          <span><a href='#/lists/{{ list.id }}'> {{ list.name }}</a>
+          <button type="button" class="btn btn-default" ng-click="deleteList(list.id)">Delete</button></span>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
