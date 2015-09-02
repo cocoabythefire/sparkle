@@ -1,16 +1,26 @@
 <div ng-controller="PlaceListCtrl">
-  <h1>My Places</h1>
-
-  Search: <input ng-model="query">
-  <div id="place-list" ng-model="places">
-    <ul class="list-unstyled">
-      <li ng-repeat="place in places | filter:query | orderBy:'name'">
-        <span> {{ place.name }}
-          <button type="button" class="btn btn-default" ng-click="deletePlace(place.id)">
-          Delete <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
-        </span>
-        <p> {{ place.type }} </p>
-      </li>
-    </ul>
+  <div class="places-section container-fluid">
+    <h2>My Places</h2>
+    <div class="input-group input-group-lg">
+      <input type="text" class="form-control" placeholder="barista" ng-model="query">
+      <span class="input-group-btn">
+      <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+      </span>
+    </div>
+    <div class="place-list container-fluid" ng-model="places">
+      <div class="row">
+        <ul class="list-unstyled">
+          <li ng-repeat="place in places | filter:query | orderBy:'name'">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="well well-lg"><span> {{ place.name }} </span>
+                <button type="button" class="btn btn-default" ng-click="deletePlace(place.id)">
+                <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
+
