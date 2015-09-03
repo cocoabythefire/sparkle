@@ -1,4 +1,4 @@
-$discover-header-height: 350px;
+$discover-header-height: 450px;
 $discover-img-overlay:   rgba(23,25,24,.5);
 $discover-input-bkgd:    rgba(12,18,27, .8);
 $discover-input-border:  rgba(226,226,226, .2);
@@ -29,7 +29,7 @@ $discover-input-border:  rgba(226,226,226, .2);
     }
 
     .input-group {
-      margin-top: 2em;
+      margin: 2em 0em;
       input {
         background-color: $discover-input-bkgd;
         border-color: $discover-input-border;

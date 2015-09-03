@@ -3,7 +3,7 @@
 var searchServices = angular.module('searchServices', []);
 searchServices.factory('Search', ['$http', function($http) {
   var placeSearchURL =  '/api/maps/place/nearbysearch/json';
-  var autocompleteURL = '/api/maps/place/autocomplete/json';
+  var autocompleteURL = '/api/maps/place/queryautocomplete/json';
 
   // TODO: Replace these hard coded params with logic
 

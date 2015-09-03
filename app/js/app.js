@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('sparkleApp', [
+  'ngAnimate',
   'ngRoute',
   'ngCookies',
   'ngLodash',
@@ -13,7 +14,8 @@ angular.module('sparkleApp', [
   'listServices',
   'authServices',
   'userServices',
-  'searchServices'
+  'searchServices',
+  'ui.bootstrap'
 ])
 .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   $routeProvider.

@@ -6,22 +6,29 @@
     <div class="discover-search">
       <h1>the world is your oyster</h1>
       <div class="input-group input-group-lg">
-        <input type="text" class="form-control" ng-model="searchInput" ng-change="autocomplete()" placeholder="coffee shops in portland">
+        <input type="text" ng-model="searchInput" placeholder="coffee near pdx" typeahead="place for place in autocomplete()" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
         <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="googleSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+          <button class="btn btn-default" type="button" ng-click="googleSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
         </span>
-      </div>
-    </div>
-     <div class="discover-results container-fluid" ng-model="searchResults">
-        <div class="row">
-          <ul class="list-unstyled">
-            <li ng-repeat="place in searchResults | orderBy:'name'">
-              <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="well well-lg"><span> {{ place.description }} </span></div>
-              </div>
-            </li>
-          </ul>
+        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+        <div ng-show="noResults">
+          <i class="glyphicon glyphicon-remove"></i> No Results Found
         </div>
       </div>
+    </div>
+    <div class="discover-results container-fluid" ng-model="searchResults">
+      <div class="row">
+        <ul class="list-unstyled">
+          <li ng-repeat="place in searchResults | orderBy:'name'">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+              <div class="well well-lg">
+                <span> {{ place.name }}</span></br>
+                <span> {{ place.vicinity }}</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
