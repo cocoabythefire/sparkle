@@ -5,16 +5,20 @@
     </div>
     <div class="discover-search">
       <h1>the world is your oyster</h1>
-      <div class="input-group input-group-lg">
-        <input type="text" ng-model="searchInput" placeholder="coffee near pdx" typeahead="place for place in autocomplete()" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button" ng-click="googleSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
-        </span>
-        <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
-        <div ng-show="noResults">
-          <i class="glyphicon glyphicon-remove"></i> No Results Found
+      <form class="form-horizontal" ng-submit="googleSearch()" novalidate>
+        <div class="form-group form-group-lg">
+          <div class="input-group input-group-lg">
+            <input type="text" ng-model="searchInput" placeholder="coffee near pdx" typeahead="place for place in autocomplete()" typeahead-loading="loadingLocations" typeahead-no-results="noResults" class="form-control">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </span>
+            <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+            <div ng-show="noResults">
+              <i class="glyphicon glyphicon-remove"></i> No Results Found
+            </div>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
     <div class="discover-results container-fluid" ng-model="searchResults">
       <div class="row">
