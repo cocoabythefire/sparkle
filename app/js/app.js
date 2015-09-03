@@ -12,7 +12,8 @@ angular.module('sparkleApp', [
   'placeServices',
   'listServices',
   'authServices',
-  'userServices'
+  'userServices',
+  'searchServices'
 ])
 .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   $routeProvider.

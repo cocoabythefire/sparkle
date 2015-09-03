@@ -1,5 +1,44 @@
 'use strict';
 
+var searchServices = angular.module('searchServices', []);
+searchServices.factory('Search', ['$http', function($http) {
+  var placeSearchURL =  '/api/maps/place/nearbysearch/json';
+  var autocompleteURL = '/api/maps/place/autocomplete/json';
+
+  // TODO: Replace these hard coded params with logic
+
+  var findPlaces = function(searchInput) {
+    return $http.get(placeSearchURL,
+      { params:
+        {
+          keyword: searchInput,
+          location: '45.522992, -122.675581', // portland, oregon
+          radius: '40233.6', // 25 miles (in meters)
+          types: 'food'
+        }
+      });
+  };
+
+  var getAutoCompletePredictions = function(searchInput) {
+    console.log('in the autocomplete service with ' + searchInput);
+    return $http.get(autocompleteURL,
+      { params:
+        {
+          input: searchInput,
+          location: '45.522992, -122.675581', // portland, oregon
+          radius: '40233.6', // 25 miles (in meters)
+          types: 'establishment'
+        }
+      });
+  };
+
+  return({
+    findPlaces: findPlaces,
+    getAutoCompletePredictions: getAutoCompletePredictions
+  });
+}]);
+
+
 var placeServices = angular.module('placeServices', ['ngResource']);
 placeServices.factory('Place', ['$resource', function($resource) {
   return $resource('/api/lists/:listId/places/:placeId', { listId: '@listId', placeId: '@placeId' }, {
