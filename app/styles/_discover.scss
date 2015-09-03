@@ -1,5 +1,5 @@
 $discover-header-height: 450px;
-$discover-img-overlay:   rgba(23,25,24,.5);
+$discover-img-overlay:   rgba(23,25,24,.3);
 $discover-input-bkgd:    rgba(12,18,27, .8);
 $discover-input-border:  rgba(226,226,226, .2);
 
@@ -10,7 +10,7 @@ $discover-input-border:  rgba(226,226,226, .2);
     left: 0;
     width: 100%;
     height: $discover-header-height;
-    background-image: url('./images/snow.png');
+    background-image: url('./images/colors.jpg');
     background-color: black;
     background-size: cover;
     z-index:-1;

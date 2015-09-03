@@ -10,6 +10,7 @@ app.controller('DiscoverCtrl',
       Search.findPlaces($scope.searchInput).then(function(response) {
         console.log(response.data.results);
         $scope.searchResults = response.data.results.map(function(item) {
+          console.log(item);
           return { 'name': item.name, 'vicinity': item.vicinity };
         });
         $scope.searchInput = '';
