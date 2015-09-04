@@ -3,7 +3,7 @@
 var app = angular.module('sparkleApp.discover', []);
 
 app.controller('DiscoverCtrl',
-['$scope', 'Search', function($scope, Search) {
+['$scope', '$location', '$anchorScroll', '$timeout', 'Search', function($scope, $location, $anchorScroll, $timeout, Search) {
 
   $scope.googleSearch = function() {
     if ($scope.searchInput) {
@@ -14,6 +14,10 @@ app.controller('DiscoverCtrl',
           return { 'name': item.name, 'vicinity': item.vicinity };
         });
         $scope.searchInput = '';
+        // $timeout(function() {
+        //   $location.hash('theresults');
+        //   $anchorScroll();
+        // }, 300);
       })
       .catch(function(error) {
         console.log('error: ' + error);
