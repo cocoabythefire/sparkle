@@ -1,0 +1,60 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/api/places"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "places": [
+        {
+          "id": 48,
+          "name": "sugar cookie"
+        },
+        {
+          "id": 49,
+          "name": "sweet potato"
+        },
+        {
+          "id": 53,
+          "name": "truffles"
+        },
+        {
+          "id": 62,
+          "name": "barista"
+        },
+        {
+          "id": 75,
+          "name": "cup and bar"
+        },
+        {
+          "id": 76,
+          "name": "hot lips"
+        },
+        {
+          "id": 78,
+          "name": "spicy pizza"
+        },
+        {
+          "id": 79,
+          "name": "red pepper flakes"
+        },
+        {
+          "id": 85,
+          "name": "watermelon"
+        },
+        {
+          "id": 90,
+          "name": "cookie monster"
+        },
+        {
+          "id": 103,
+          "name": "wine bar"
+        }
+      ]
+    }
+  }
+}

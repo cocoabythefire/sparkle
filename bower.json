@@ -20,5 +20,8 @@
   },
   "resolutions": {
     "angular": "~1.4.0"
+  },
+  "devDependencies": {
+    "bluebird": "~2.9.34"
   }
 }

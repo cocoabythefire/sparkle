@@ -11,7 +11,7 @@
       <div class="row">
         <ul class="list-unstyled">
           <li ng-repeat="place in places | filter:query | orderBy:'name'">
-            <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="place col-xs-12 col-sm-6 col-md-4">
               <div class="well well-lg"><span> {{ place.name }} </span>
                 <button type="button" class="btn btn-default" ng-click="deletePlace(place.id)">
                 <span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></button>

@@ -5,6 +5,7 @@ angular.module('sparkleApp', [
   'ngRoute',
   'ngCookies',
   'ngLodash',
+  'templates',
   'sparkleApp.profile',
   'sparkleApp.places',
   'sparkleApp.lists',
@@ -20,27 +21,27 @@ angular.module('sparkleApp', [
 .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   $routeProvider.
     when('/discover', {
-      templateUrl: 'views/discover/discoverView.html',
+      templateUrl: 'discover/discoverView.html',
       controller: 'DiscoverCtrl'
     })
     .when('/places', {
-      templateUrl: 'views/places/placeView.html',
+      templateUrl: 'places/placeView.html',
       controller: 'PlaceListCtrl'
     })
     .when('/lists', {
-      templateUrl: 'views/lists/listView.html',
+      templateUrl: 'lists/listView.html',
       controller: 'ListCtrl'
     })
     .when('/lists/:id', {
-      templateUrl: 'views/lists/listDetailView.html',
+      templateUrl: 'lists/listDetailView.html',
       controller: 'ListCtrl'
     })
     .when('/profile', {
-      templateUrl: 'views/profile/profileView.html',
+      templateUrl: 'profile/profileView.html',
       controller: 'ProfileViewCtrl'
     })
     .when('/login', {
-      templateUrl: 'views/loginView.html',
+      templateUrl: 'loginView.html',
       controller: 'LoginCtrl'
     })
     .otherwise({

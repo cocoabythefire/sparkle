@@ -9,13 +9,30 @@ var uglify = require('gulp-uglify');
 var plumber = require('gulp-plumber');
 var remember = require('gulp-remember');
 var sourcemaps = require('gulp-sourcemaps');
+var angularTemplateCache = require('gulp-angular-templatecache');
 var env = process.env.NODE_ENV || 'development';
 
 module.exports = function(paths, util) {
+  var templatesFilter = filter('**/*.html', { restore: true });
   var jsFilter = filter('**/*.js', { restore: true });
-  var appJSFilter = filter(['**/*', '!bower_components/**/*'], { restore: true });
-  var stream = gulp.src(paths.scripts)
+  var appJSFilter = filter([
+    '**/*',
+    '!templates/**/*',
+    '!bower_components/**/*'
+  ], { restore: true });
+  var sources = [].concat(paths.scripts, paths.templates);
+  var stream = gulp.src(sources)
     .pipe(plumber({ errorHandler: util.error }));
+
+  // templates
+  stream = stream
+    .pipe(templatesFilter)
+    .pipe(cached('app-templates'))
+    .pipe(angularTemplateCache({ standalone: true }))
+    .pipe(remember('app-templates'))
+    .pipe(concat('scripts/templates.js'))
+    .pipe(gulp.dest(paths.dest))
+    .pipe(templatesFilter.restore);
 
   // js
   stream = stream

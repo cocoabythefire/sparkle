@@ -3,6 +3,15 @@
         "mocha": true
     },
     "globals": {
+        "$": false,
+        "__html__": false,
+        "__fixture__": false,
+        "async": false,
+        "wait": false,
+        "visit": false,
+        "setup": false,
+        "stubResponse": false,
+        "sinon": false,
         "expect": false,
         "inject": false,
         "module": false,

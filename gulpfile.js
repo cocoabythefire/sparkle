@@ -14,6 +14,9 @@ var paths = {
     './*bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
     'app/**/*.js'
   ],
+  templates: [
+    'app/views/**/*.html'
+  ],
   styles: ['app/**/*.{scss,css}'],
   static: [
     'app/**/!(*.js|*.scss|*.css)',
@@ -42,6 +45,8 @@ var task = function(name) {
   };
 };
 
+// TODO: serve depending on build makes it so build
+// needs to pass in order for serve to run. fix that.
 gulp.task('serve', ['build'], task('serve'));
 gulp.task('build', ['scripts', 'styles', 'static']);
 gulp.task('scripts', task('scripts'));
