@@ -11,6 +11,7 @@ angular.module('sparkleApp', [
   'sparkleApp.lists',
   'sparkleApp.auth',
   'sparkleApp.discover',
+  'sparkleApp.landing',
   'placeServices',
   'listServices',
   'authServices',
@@ -20,7 +21,11 @@ angular.module('sparkleApp', [
 ])
 .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
   $routeProvider.
-    when('/discover', {
+    when('/', {
+      templateUrl: 'landing/landingView.html',
+      controller: 'LandingCtrl'
+    })
+    .when('/discover', {
       templateUrl: 'discover/discoverView.html',
       controller: 'DiscoverCtrl'
     })
@@ -45,7 +50,7 @@ angular.module('sparkleApp', [
       controller: 'LoginCtrl'
     })
     .otherwise({
-      redirectTo: '/places'
+      redirectTo: '/'
     });
 
   $httpProvider.interceptors.push('sendTokenHeaders');
