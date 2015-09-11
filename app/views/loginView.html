@@ -1,23 +1,57 @@
 <div ng-controller='LoginCtrl'>
   <div class="login-section container-fluid" ng-show="!userIsLoggedIn()">
     <h1>Login</h1>
-    <form class="form-horizontal" ng-submit="login()" novalidate>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" class="form-control input-lg" id="username" ng-model="formUsername" ng-model-options="{ debounce: 250 }" placeholder="username">
+    <form name="loginForm" class="form-horizontal" ng-submit="login()" novalidate>
+      <div class="form-group"
+        ng-class="{'has-warning' : loginForm.emailInput.$invalid && loginForm.emailInput.$dirty,
+                   'has-feedback' : loginForm.emailInput.$invalid && loginForm.emailInput.$dirty,
+                   'has-success' : !loginForm.emailInput.$invalid}">
+        <label for="username">Email</label>
+        <input name="emailInput" type="email" class="form-control input-lg" id="username"
+          ng-model="formUsername" placeholder="me@abc.com" required>
+        <span class="help-block">
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+            ng-show="!loginForm.emailInput.$invalid">
+          </span>
+          <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"
+            ng-show="loginForm.emailInput.$invalid && loginForm.emailInput.$dirty && !loginForm.emailInput.$error.required">
+            Please enter a valid email address.
+          </span>
+          <span class="form-control-feedback"
+            ng-show="loginForm.emailInput.$error.required && loginForm.emailInput.$dirty">
+            Please enter your email.
+          </span>
+        </span>
       </div>
-      <div class="form-group">
+      <div class="form-group"
+        ng-class="{'has-warning' : loginForm.passwordInput.$invalid && loginForm.passwordInput.$dirty,
+                   'has-feedback' : loginForm.passwordInput.$invalid && loginForm.passwordInput.$dirty,
+                   'has-success' : !loginForm.passwordInput.$invalid}">
         <label for="password">Password</label>
-        <input type="password" class="form-control input-lg" id="password" ng-model="formPassword" ng-model-options="{ debounce: 250 }"placeholder="password">
+        <input name="passwordInput" type="password" class="form-control input-lg" id="password"
+          ng-model="formPassword" ng-model-options="{ debounce: 250 }"placeholder="password" required>
+        <span class="help-block">
+          <span class="form-control-feedback"
+            ng-show="loginForm.passwordInput.$error.required && loginForm.passwordInput.$dirty">
+            Please enter your password.
+          </span>
+          <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"
+            ng-show="!loginForm.passwordInput.$invalid">
+          </span>
+        </span>
       </div>
-      <button type="submit" class="btn btn-primary btn-lg">Log In</button>
+      <button id="loginButton" type="submit" class="btn btn-primary btn-lg"
+        ng-disabled="loginForm.emailInput.$invalid || loginForm.passwordInput.$error.required">
+        Log In
+      </button>
       <p> – or – </p>
-      <button type="button" class="btn btn-primary btn-lg" ng-class="signup-button" ng-click="signup()">Sign Up</button>
+      <button id="signupButton" type="button" class="btn btn-primary btn-lg" ng-class="signup-button"
+        ng-click="signup()">Sign Up</button>
     </form>
   </div>
   <div class="logout-section container-fluid" ng-show="userIsLoggedIn()">
     <h1>LogOut</h1>
-    <button type="button" class="btn btn-primary btn-lg" ng-class="logout-button" ng-click="logout()">Log Out</button>
-    </br>
+    <button id="logoutButton" type="button" class="btn btn-primary btn-lg" ng-class="logout-button"
+      ng-click="logout()">Log Out</button>
   </div>
 </div>
