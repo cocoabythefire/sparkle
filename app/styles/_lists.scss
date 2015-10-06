@@ -1,0 +1,29 @@
+.list-section {
+  padding: 0em 5%;
+  height: 800px;
+  background: #08404c;
+  color: grey;
+}
+
+.search-box {
+  margin-top: 18px;
+  padding: 1em 2em;
+  text-align: left;
+}
+
+.single-list-box {
+  margin: 1em;
+  width: 30%;
+  float: left;
+  display: inline-block;
+  color: #231123;
+  .list-name {
+    font-size: 200%;
+  }
+  .list-location {
+    color: grey;
+    font-size: 80%;
+    font-style: italic;
+  }
+
+}
