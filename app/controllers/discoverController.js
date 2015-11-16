@@ -11,7 +11,12 @@ app.controller('DiscoverCtrl',
         console.log(response.data.results);
         $scope.searchResults = response.data.results.map(function(item) {
           console.log(item);
-          return { 'name': item.name, 'vicinity': item.vicinity };
+          return {
+            'name': item.name,
+            'vicinity': item.vicinity,
+            'placeId': item.id,
+            'types': item.types
+          };
         });
         $scope.searchInput = '';
         // $timeout(function() {

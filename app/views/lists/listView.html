@@ -6,15 +6,15 @@
     <div id="all-lists" ng-model="lists">
       <ul class="list-unstyled list-box">
         <li ng-repeat="list in lists | filter:query | orderBy:'name'">
-          <div class="single-list-box">
+          <div class="single-list-box col-lg-4 col-md-6 col-sm-12">
             <ul class="list-group">
-              <li class="list-group-item">
+              <li class="list-header list-group-item">
                 <span class="list-name"><a href='#/lists/{{ list.id }}'> {{ list.name }}</a></span>
                 <span class="list-location"><p>NE, Portland, OR</p></span></li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Morbi leo risus</li>
-              <li class="list-group-item">Porta ac consectetur ac</li>
-              <li class="list-group-item">Vestibulum at eros</li>
+              <li class="list-place list-group-item">Barista</li>
+              <li class="list-place list-group-item">Fresh Pot</li>
+              <li class="list-place list-group-item">Stumptown</li>
+              <li class="list-place list-group-item">Courier Coffee</li>
             </ul>
             <button type="button" class="btn btn-default" ng-click="deleteList(list.id)">
             Delete</button></span>
@@ -22,15 +22,18 @@
         </li>
       </ul>
     </div>
-    <form ng-submit="createList(list.name)" novalidate>
-        <div class="form-group">
-          <label for="list-name">Create List</label>
-          <input type="text" class="form-control" id="list-name" placeholder=
-          "best coffee shops" ng-model="list.name" ng-model-options="{ debounce: 250 }" />
-          <button type="submit" class="btn btn-default" id="saveList">Save</button>
+  </div>
+  <div class="bottom-section container-fluid">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <input type="text" class="create-list-input form-control" id="list-name" placeholder="best pizza joints" ng-model="list.name" ng-model-options="{ debounce: 250 }">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="createList(list.name)" id="saveList">Create</button>
+          </span>
         </div>
-    </form>
-    </br>
+      </div>
+    </div>
   </div>
 </div>
 

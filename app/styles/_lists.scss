@@ -1,21 +1,28 @@
 .list-section {
-  padding: 0em 5%;
   height: 800px;
   background: #08404c;
   color: grey;
 }
 
+.bottom-section {
+  background: white;
+  .row {
+    padding:0.5em 2em;
+  }
+}
+
 .search-box {
-  margin-top: 18px;
-  padding: 1em 2em;
+  margin-top: 20px;
+  padding: 0.5em 2em;
   text-align: left;
+  background: white;
 }
 
 .single-list-box {
-  margin: 1em;
-  width: 30%;
-  float: left;
-  display: inline-block;
+  // margin: 1em;
+  // width: 30%;
+  // float: left;
+  // display: inline-block;
   color: #231123;
   .list-name {
     font-size: 200%;
@@ -26,4 +33,25 @@
     font-style: italic;
   }
 
+  .list-group {
+    .list-place {
+      text-align: left;
+      &:hover {
+        background: blue;
+      }
+    }
+  }
+}
+
+.create-list-form {
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  display: block;
+  clear: both;
+  background: pink;
+  width: 100%;
+  .create-list-input {
+    width: 30%;
+  }
 }
