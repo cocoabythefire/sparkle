@@ -3,7 +3,8 @@
 var searchServices = angular.module('searchServices', []);
 searchServices.factory('Search', ['$http', function($http) {
   var placeSearchURL =  '/api/maps/place/nearbysearch/json';
-  var autocompleteURL = '/api/maps/place/queryautocomplete/json';
+  var placeAutoCompleteURL = '/api/maps/place/autocomplete/json';
+  var queryAutoCompleteURL = '/api/maps/place/queryautocomplete/json';
 
   // TODO: Replace these hard coded params with logic
 
@@ -19,9 +20,18 @@ searchServices.factory('Search', ['$http', function($http) {
       });
   };
 
-  var getAutoCompletePredictions = function(searchInput) {
-    console.log('in the autocomplete service with ' + searchInput);
-    return $http.get(autocompleteURL,
+  var getPlaceAutoCompletePredictions = function(searchInput) {
+    return $http.get(placeAutoCompleteURL,
+      { params:
+        {
+          input: searchInput,
+          types: 'geocode'
+        }
+      });
+  };
+
+  var getQueryAutoCompletePredictions = function(searchInput) {
+    return $http.get(queryAutoCompleteURL,
       { params:
         {
           input: searchInput,
@@ -34,7 +44,8 @@ searchServices.factory('Search', ['$http', function($http) {
 
   return({
     findPlaces: findPlaces,
-    getAutoCompletePredictions: getAutoCompletePredictions
+    getPlaceAutoCompletePredictions: getPlaceAutoCompletePredictions,
+    getQueryAutoCompletePredictions: getQueryAutoCompletePredictions
   });
 }]);
 
